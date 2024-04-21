@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('codigo_postal');
             $table->string('contenido_paquete');
             $table->string('peso');
-            $table->timestamps('fecha_envio');
+            $table->timestamps(); // Corrección aquí
         });
     }
 

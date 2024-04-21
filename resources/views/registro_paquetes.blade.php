@@ -23141,65 +23141,58 @@ body {
                             </div>
                             <div class="right-content">
                                 <center><h1>Crear Nuevo Paquete</h1><br>
-<form method="POST" action="{{ route('packagLog') }}">
-    @csrf
-
-    <div>
-        <label for="nombre_destinatario">Nombre del destinatario:</label>
-        <input type="text" id="nombre_destinatario" name="nombre_destinatario" required>
-    </div>
-
-    <div>
-        <label for="direccion_destino">Dirección de destino:</label>
-        <input type="text" id="direccion_destino" name="direccion_destino" required>
-    </div>
-
-    <div>
-        <label for="ciudad_destino">Ciudad de destino:</label>
-        <input type="text" id="ciudad_destino" name="ciudad_destino" required>
-    </div>
-
-    <div>
-        <label for="codigo_postal">Código Postal:</label>
-        <input type="text" id="codigo_postal" name="codigo_postal" required>
-    </div>
-
-    <div>
-        <label for="contenido_paquete">Contenido del paquete:</label>
-        <textarea id="contenido_paquete" name="contenido_paquete" required></textarea>
-    </div>
-
-    <div>
-        <label for="peso">Peso del paquete:</label>
-        <input type="number" id="peso" name="peso" required>
-    </div>
-
-    <div>
-        <label for="fecha_envio">Fecha de envío:</label>
-        <input type="date" id="fecha_envio" name="fecha_envio" required>
-    </div>
-
-    <button type="submit">Enviar paquete</button>
-</form>
-
+                                    <form method="POST" action="{{ route('package-log.store') }}">
+                                        @csrf
+                                        <div>
+                                            <label for="nombre_destinatario">Nombre del destinatario:</label>
+                                            <input type="text" id="nombre_destinatario" name="nombre_destinatario" required>
+                                        </div>
+                                    
+                                        <div>
+                                            <label for="direccion_destino">Dirección de destino:</label>
+                                            <input type="text" id="direccion_destino" name="direccion_destino" required>
+                                        </div>
+                                    
+                                        <div>
+                                            <label for="ciudad_destino">Ciudad de destino:</label>
+                                            <input type="text" id="ciudad_destino" name="ciudad_destino" required>
+                                        </div>
+                                    
+                                        <div>
+                                            <label for="codigo_postal">Código Postal:</label>
+                                            <input type="text" id="codigo_postal" name="codigo_postal" required>
+                                        </div>
+                                    
+                                        <div>
+                                            <label for="contenido_paquete">Contenido del paquete:</label>
+                                            <textarea id="contenido_paquete" name="contenido_paquete" required></textarea>
+                                        </div>
+                                    
+                                        <div>
+                                            <label for="peso">Peso del paquete:</label>
+                                            <input type="number" id="peso" name="peso" required>
+                                        </div>
+                                    
+                                        <div>
+                                            <label for="fecha_envio">Fecha de envío:</label>
+                                            <input type="date" id="fecha_envio" name="fecha_envio" required>
+                                        </div>                                    
+                                        <button type="submit">Enviar paquete</button>
+                                    </form>
                             </div></center> 
                         </div>
                     </div>
                 </main>
             </div>
-            
-            
-
-
-                    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-                        crossorigin="anonymous"></script>
-                    <script src="js/scripts.js"></script>
-                    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"
-                        crossorigin="anonymous"></script>
-                    <script src="assets/demo/chart-area-demo.js"></script>
-                    <script src="assets/demo/chart-bar-demo.js"></script>
-                    <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js"
-                        crossorigin="anonymous"></script>
-                    <script src="js/datatables-simple-demo.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+                crossorigin="anonymous"></script>
+        <script src="js/scripts.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"
+                crossorigin="anonymous"></script>
+        <script src="assets/demo/chart-area-demo.js"></script>
+        <script src="assets/demo/chart-bar-demo.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js"
+            crossorigin="anonymous"></script>
+        <script src="js/datatables-simple-demo.js"></script>
 </body>
 </html>
