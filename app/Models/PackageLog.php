@@ -9,5 +9,13 @@ class PackageLog extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['package_id', 'estado', 'direccion'];
+    protected $fillable = [
+        'nombre_destinatario',
+        'direccion_destino',
+        'ciudad_destino',
+        'codigo_postal',
+        'contenido_paquete',
+        'peso',
+        'fecha_envio',
+    ];
 }

@@ -10,6 +10,7 @@ use App\Http\Controllers\PackageLogController;
 
 
 
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -18,33 +19,7 @@ Route::get('dashboard', function () {
     return view('/dashboard');
 })->name('dashboard');
 
-Route::get('registro_paquetes', function () {
-    return view('/registro_paquetes');
-})->name('registro_paquetes');
 
-Route::get('servicio', function () {
-    return view('/servicio');
-})->name('servicio');
-
-Route::get('paqueteria', function () {
-    return view('/paqueteria');
-})->name('paqueteria');
-
-Route::get('rastreador', function () {
-    return view('/rastreador');
-})->name('rastreador');
-
-Route::get('vision_mision', function () {
-    return view('/vision_mision');
-})->name('vision_mision');
-
-Route::get('profile', function () {
-    return view('edit');
-})->name('profile');
-
-Route::get('npedidos', function () {
-    return view('/npedidos');
-})->name('npedidos');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -52,11 +27,40 @@ Route::get('/dashboard', function () {
 
 
 Route::middleware('auth')->group(function () {
+
+    Route::get('registro_paquetes', function () {
+        return view('/registro_paquetes');
+    })->name('registro_paquetes');
+    
+    Route::get('servicio', function () {
+        return view('/servicio');
+    })->name('servicio');
+    
+    Route::get('paqueteria', function () {
+        return view('/paqueteria');
+    })->name('paqueteria');
+    
+    Route::get('rastreador', function () {
+        return view('/rastreador');
+    })->name('rastreador');
+    
+    Route::get('vision_mision', function () {
+        return view('/vision_mision');
+    })->name('vision_mision');
+    
+    Route::get('profile', function () {
+        return view('edit');
+    })->name('profile');
+    
+    Route::get('npedidos', function () {
+        return view('/npedidos');
+    })->name('npedidos');
+
+    Route::post('/package-log', [PackageLogController::class, 'store'])->name('package-log.store');
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::get('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
-    Route::get('/package-logs', [PackageLogController::class, 'package-logs'])->name('package-logs');
-    Route::resource('Packagelogs', PackageLogController::class);
+    Route::post('/package-log', [PackageLogController::class, 'store'])->name('package-log.store');
 });
 
 require __DIR__.'/auth.php';
