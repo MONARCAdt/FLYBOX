@@ -23153,7 +23153,7 @@ body {
                             <form action="{{ route('logout') }}" method="GET"> <!-- Cambiado a GET -->
                                 @csrf
                                 <button class="btn btn-black" type="submit">Logout</button>
-                            </form>                           
+                            </form>                         
                         </li>
                     </ul>
                 </li>
@@ -23167,24 +23167,28 @@ body {
                             <div class="sb-sidenav-menu-heading">PAQUETERIA</div>
                             <a class="nav-link" href="{{route('dashboard')}}">
                                 <div class="sb-nav-link-icon"></div>
-                                INICIO
+                                Inicio
                             </a>
-                            <a class="nav-link" href="entregas.html">
+                            <a class="nav-link" href="{{route('registro_paquetes')}}">
                                 <div class="sb-nav-link-icon"></div>
-                                PAQUETERIA
+                                Registro de paqueteria
                             </a>
-                            <a class="nav-link" href="clientes.html">
+                            <a class="nav-link" href="{{route('paqueteria')}}">
                                 <div class="sb-nav-link-icon"></div>
-                                CLIENTES
+                                Paqueteria
+                            </a>
+                            <a class="nav-link" href="{{route('rastreador')}}">
+                                <div class="sb-nav-link-icon"></div>
+                                Rastreador
                             </a>
                             <div class="sb-sidenav-menu-heading">INFORMACIÓN</div>
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="{{route('servicio')}}">
                                 <div class="sb-nav-link-icon"></div>
-                                VER MAS SOBRE FLYBOX
+                                Servicios
                             </a>
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="{{route('vision_mision')}}">
                                 <div class="sb-nav-link-icon"></div>
-                                MISIÓN Y VISIÓN
+                                Mision y vision
                             </a>
                         </div>
                     </div>

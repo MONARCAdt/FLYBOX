@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>FlyBox - Registro de paquetes</title>
+    <title>FlyBox - Crear envío</title>
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -117,6 +117,53 @@
         scroll-behavior: smooth;
     }
 }
+
+.left-content {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.left-content h1 {
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box;
+}
+
+.btn-primary {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    border: none;
+    border-radius: 3px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
 
 .container {
     max-width: 1200px;
@@ -23021,33 +23068,27 @@ body {
 </head>
 
 <body class="sb-nav-fixed">
-        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-            <a class="navbar-brand ps-3" href="{{route('registro_paquetes')}}">FLYBOX</a>
-            <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i
-                    class="fas fa-bars"></i></button>
-            <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
-                <div class="input-group">
-                    <input class="form-control" type="text" placeholder="Buscar..." aria-label="Search for..."
-                        aria-describedby="btnNavbarSearch" />
-                    <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i
-                            class="fas fa-search"></i></button>
-                </div>
-            </form>
-            <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown"
-                        aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
-                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#!">Activity Log</a></li>
-                        <li>
-                            <hr class="dropdown-divider" />
-                        </li>
-                        <li>
-                            <form action="{{ route('logout') }}" method="GET"> <!-- Cambiado a GET -->
-                                @csrf
-                                <button class="btn btn-black" type="submit">Logout</button>
-                            </form>                           
-                        </li>
+    <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+        <a class="navbar-brand ps-3" href="index.html">FLYBOX</a>
+        <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i
+                class="fas fa-bars"></i></button>
+        <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+        </form>
+        <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown"
+                    aria-expanded="false"></a>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="{{route('edit')}}">Perfil</a></li>
+                    <li>
+                        <hr class="dropdown-divider" />
+                    </li>
+                    <li>
+                        <form action="{{ route('logout') }}" method="GET"> <!-- Cambiado a GET -->
+                            @csrf
+                            <button class="btn btn-black" type="submit">Logout</button>
+                        </form>                          
+                    </li>
                     </ul>
                 </li>
             </ul>
@@ -23062,24 +23103,27 @@ body {
                                 <div class="sb-nav-link-icon"></div>
                                 Inicio
                             </a>
-                            <a class="nav-link" href="entregas.html">
+                            <a class="nav-link" href="{{route('registro_paquetes')}}">
+                                <div class="sb-nav-link-icon"></div>
+                                Crear envío
+                            </a>
+                            <a class="nav-link" href="{{route('paqueteria')}}">
                                 <div class="sb-nav-link-icon"></div>
                                 Paqueteria
                             </a>
-                            <a class="nav-link" href="clientes.html">
+                            <a class="nav-link" href="{{route('rastreador')}}">
                                 <div class="sb-nav-link-icon"></div>
-                                Clientes
+                                Rastreador
                             </a>
                             <div class="sb-sidenav-menu-heading">INFORMACIÓN</div>
                             <a class="nav-link" href="{{route('servicio')}}">
                                 <div class="sb-nav-link-icon"></div>
                                 Servicios
                             </a>
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="{{route('vision_mision')}}">
                                 <div class="sb-nav-link-icon"></div>
                                 Mision y vision
                             </a>
-
                         </div>
                     </div>
             </div>
@@ -23096,37 +23140,49 @@ body {
                                 <p>Así que te invito a aprovechar esta nueva herramienta que tenemos a disposición. Registra tus paquetes aquí y experimenta la tranquilidad de saber que tus envíos están en buenas manos. Juntos, podemos hacer de nuestra comunidad un lugar aún mejor para vivir y prosperar.</p>
                             </div>
                             <div class="right-content">
-                                <h1>Crear Nuevo Paquete</h1>
-                                <form id="packageForm" action="{{route('crear-paquete')}}" method="POST">
-                                    @csrf
-                                    <label for="product">Producto:</label><br>
-                                    <input type="text" id="product" name="product" required><br>
-                                    
-                                    <label for="weight">Peso (Kg):</label><br>
-                                    <input type="number" id="weight" name="weight" step="0.01" required><br>
-                                    
-                                    <label for="dimension">Dimensión:</label><br>
-                                    <input type="text" id="dimension" name="dimension" required><br>
-                                    
-                                    <label for="destination">Destino:</label><br>
-                                    <input type="text" id="destination" name="destination" required><br>
-                                    
-                                    <label for="departure_date">Fecha de Salida:</label><br>
-                                    <input type="date" id="departure_date" name="departure_date" required><br>
-                                    
-                                    <label for="departure_time">Hora de Salida:</label><br>
-                                    <input type="time" id="departure_time" name="departure_time" required><br>
-                                    
-                                    <label for="arrival_date">Fecha de Llegada:</label><br>
-                                    <input type="date" id="arrival_date" name="arrival_date" required><br>
-                                    
-                                    <label for="arrival_time">Hora de Llegada:</label><br>
-                                    <input type="time" id="arrival_time" name="arrival_time" required><br>
-                                    
-                                    <button type="submit">Crear Paquete</button>
-                                </form>
-                            
-                            </div>
+                                <center><h1>Crear Nuevo Paquete</h1><br>
+<form method="POST" action="{{ route('packagLog') }}">
+    @csrf
+
+    <div>
+        <label for="nombre_destinatario">Nombre del destinatario:</label>
+        <input type="text" id="nombre_destinatario" name="nombre_destinatario" required>
+    </div>
+
+    <div>
+        <label for="direccion_destino">Dirección de destino:</label>
+        <input type="text" id="direccion_destino" name="direccion_destino" required>
+    </div>
+
+    <div>
+        <label for="ciudad_destino">Ciudad de destino:</label>
+        <input type="text" id="ciudad_destino" name="ciudad_destino" required>
+    </div>
+
+    <div>
+        <label for="codigo_postal">Código Postal:</label>
+        <input type="text" id="codigo_postal" name="codigo_postal" required>
+    </div>
+
+    <div>
+        <label for="contenido_paquete">Contenido del paquete:</label>
+        <textarea id="contenido_paquete" name="contenido_paquete" required></textarea>
+    </div>
+
+    <div>
+        <label for="peso">Peso del paquete:</label>
+        <input type="number" id="peso" name="peso" required>
+    </div>
+
+    <div>
+        <label for="fecha_envio">Fecha de envío:</label>
+        <input type="date" id="fecha_envio" name="fecha_envio" required>
+    </div>
+
+    <button type="submit">Enviar paquete</button>
+</form>
+
+                            </div></center> 
                         </div>
                     </div>
                 </main>

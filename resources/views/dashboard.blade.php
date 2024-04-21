@@ -22905,7 +22905,6 @@ body {
                         aria-expanded="false"></a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="·!">Perfil</a></li>
-                        <li><a class="dropdown-item" href="#!">Activity Log</a></li>
                         <li>
                             <hr class="dropdown-divider" />
                         </li>
@@ -22925,24 +22924,28 @@ body {
                     <div class="sb-sidenav-menu">
                         <div class="nav">
                             <div class="sb-sidenav-menu-heading">PAQUETERIA</div>
+                            <a class="nav-link" href="{{route('dashboard')}}">
+                                <div class="sb-nav-link-icon"></div>
+                                Inicio
+                            </a>
                             <a class="nav-link" href="{{route('registro_paquetes')}}">
                                 <div class="sb-nav-link-icon"></div>
-                                Registro de paquetes
+                                Crear envío
                             </a>
-                            <a class="nav-link" href="entregas.html">
+                            <a class="nav-link" href="{{route('paqueteria')}}">
                                 <div class="sb-nav-link-icon"></div>
                                 Paqueteria
                             </a>
-                            <a class="nav-link" href="clientes.html">
+                            <a class="nav-link" href="{{route('rastreador')}}">
                                 <div class="sb-nav-link-icon"></div>
-                                Clientes
+                                Rastreador
                             </a>
                             <div class="sb-sidenav-menu-heading">INFORMACIÓN</div>
                             <a class="nav-link" href="{{route('servicio')}}">
                                 <div class="sb-nav-link-icon"></div>
                                 Servicios
                             </a>
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="{{route('vision_mision')}}">
                                 <div class="sb-nav-link-icon"></div>
                                 Mision y vision
                             </a>
