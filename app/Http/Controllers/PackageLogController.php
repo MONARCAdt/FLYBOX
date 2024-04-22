@@ -27,6 +27,6 @@ class PackageLogController extends Controller
 
         $packageLog = PackageLog::create($request->all());
 
-        return redirect()->route('package-log.store')->with('success', 'Paquete enviado correctamente');
+        return redirect()->route('registro_paquetes');
     }
 }

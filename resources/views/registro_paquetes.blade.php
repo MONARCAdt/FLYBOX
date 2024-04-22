@@ -23067,6 +23067,7 @@ body {
 3</style>
 </head>
 
+
 <body class="sb-nav-fixed">
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
         <a class="navbar-brand ps-3" href="index.html">FLYBOX</a>
@@ -23141,7 +23142,7 @@ body {
                             </div>
                             <div class="right-content">
                                 <center><h1>Crear Nuevo Paquete</h1><br>
-                                    <form method="POST" action="{{ route('package-log.store') }}">
+                                    <form method="post" action="{{ route('package-log.store') }}">
                                         @csrf
                                         <div>
                                             <label for="nombre_destinatario">Nombre del destinatario:</label>

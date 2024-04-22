@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('package_log', function (Blueprint $table) {
+        Schema::create('package_logs', function (Blueprint $table) {
             $table->id();
             $table->string('nombre_destinatario');
             $table->string('direccion_destino');
@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('codigo_postal');
             $table->string('contenido_paquete');
             $table->string('peso');
+            $table->string('fecha_envio');
             $table->timestamps(); // Corrección aquí
         });
     }

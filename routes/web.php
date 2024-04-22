@@ -56,11 +56,10 @@ Route::middleware('auth')->group(function () {
         return view('/npedidos');
     })->name('npedidos');
 
-    Route::post('/package-log', [PackageLogController::class, 'store'])->name('package-log.store');
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::get('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
-    Route::post('/package-log', [PackageLogController::class, 'store'])->name('package-log.store');
+    Route::post('/package-logs', [PackageLogController::class, 'store'])->name('package-log.store');
 });
 
 require __DIR__.'/auth.php';
