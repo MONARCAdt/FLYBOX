@@ -12,7 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('package_logs', function (Blueprint $table) {
-            $table->id();
+            $table->id()->unique();
+            $table->string('numero_paquete');
             $table->string('nombre_destinatario');
             $table->string('direccion_destino');
             $table->string('ciudad_destino');

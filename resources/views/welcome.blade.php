@@ -41,6 +41,118 @@
     --color-title: #001A49;
 }
 
+#tabla-precios {
+ display:inline-block;
+ width:100%;
+ margin-top:50px
+}
+
+/*Columnas*/
+
+.precio-col {
+ display:inline-block;
+ background-color:#f3f3f3;
+ width:100%;
+ max-width:500px;
+ border-radius:10px;
+ margin-bottom:50px;
+ box-shadow: 0px 2px 5px #ddd
+}
+
+@media screen and (min-width:768px) {
+ .precio-col {
+ width:32%;
+ float:left;
+ margin-right:2%
+ }
+ 
+ .precio-col:last-child {
+ margin-right:0
+ }
+}
+
+/*Headers*/
+
+.precio-col-header {
+ background-color:#333;
+ padding:20px;
+ border-top-left-radius:10px;
+ border-top-right-radius:10px
+}
+
+.precio-col:nth-child(2) .precio-col-header {
+ background-color:#3876b0
+}
+
+.precio-col-header h3 {
+ color:#f3f3f3;
+ text-align:center;
+ font-size:30px;
+ font-weight:600;
+ margin-bottom:0
+}
+
+.precio-col-header p {
+ text-align:center;
+ color:#f3f3f3;
+ font-size:14px;
+ margin-bottom:0
+}
+
+/*Características*/
+
+.precio-col-features {
+ padding: 0 20px 20px 20px
+}
+
+.precio-col-features p {
+ padding:20px 0;
+ margin:0;
+ text-align:center;
+ border-top:1px solid #ddd
+}
+
+.precio-col-features p:first-child,
+.precio-col-features p:last-child {
+ border-top:none
+}
+
+/*Comprar*/
+
+.precio-col-comprar {
+ padding:10px;
+ max-width:250px;
+ text-align:center;
+ background-color:#3876b0;
+ margin: 0 auto 20px;
+ border-radius:10px;
+ border: 2px solid #3876b0;
+ transition: all 0.3s
+}
+
+.precio-col-comprar a {
+ color:#f3f3f3;
+ padding:10px;
+ font-size:20px;
+ text-transform:uppercase;
+ transition: all 0.3s
+}
+
+.precio-col-comprar:hover {
+ background-color:#f3f3f3;
+ transition: all 0.3s
+}
+
+.precio-col-comprar:hover a {
+ color:#dd9933;
+ transition: all 0.3s
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
 body {
     font-family: 'Poppins', sans-serif;
 }
@@ -851,21 +963,63 @@ button:hover {
 
 
         <section class="container about">
-            <section class="questions__offer">
-                <h2 class="subtitle">TARIFAS DE ENVIO</h2>
-                <p class="questions__copy">Nuestro servicio de envío ofrece tarifas flexibles y competitivas para satisfacer tus necesidades de entrega. Con un enfoque en la conveniencia y la eficiencia, nuestras tarifas se ajustan a diferentes tipos de envíos y destinos.</p>
-                <a href="#" class="cta">VER TARIFA</a>
-            </section>
-            <section class="questions__offer">
-                <h2 class="subtitle">TARIFAS DE ENVIO</h2>
-                <p class="questions__copy">Nuestro servicio de envío ofrece tarifas flexibles y competitivas para satisfacer tus necesidades de entrega. Con un enfoque en la conveniencia y la eficiencia, nuestras tarifas se ajustan a diferentes tipos de envíos y destinos.</p>
-                <a href="#" class="cta">VER TARIFA</a>
-            </section>
-            <section class="questions__offer">
-                <h2 class="subtitle">TARIFAS DE ENVIO</h2>
-                <p class="questions__copy">Nuestro servicio de envío ofrece tarifas flexibles y competitivas para satisfacer tus necesidades de entrega. Con un enfoque en la conveniencia y la eficiencia, nuestras tarifas se ajustan a diferentes tipos de envíos y destinos.</p>
-                <a href="#" class="cta">VER TARIFA</a>
-            </section>
+            <center><h1 class="mt-4">SERVICIOS</h1></center>
+            <div id="tabla-precios">
+
+                <div class="precio-col">
+                 <div class="precio-col-header">
+                 <h3>$15.000/Envio estandar</h3>
+                 </div>
+                
+                <div class="precio-col-features">
+                    <p>Embalaje especial</p>
+                    <p>Rastreo avanzado</p>
+                    <p>Seguro de envío</p>
+                    <p></p>
+                 </div>
+                
+                <div class="precio-col-comprar">
+                 <a>Comprar</a>
+                 </div>
+                 </div>
+                
+                <div class="precio-col">
+                 <div class="precio-col-header">
+                    <h3>$20.000/Envio express</h3>
+                 </div>
+                
+                <div class="precio-col-features">
+                    <p>Embalaje especial</p>
+                    <p>Rastreo avanzado</p>
+                    <p>Seguro de envío</p>
+                    <p></p>
+                 </div>
+                
+                <div class="precio-col-comprar">
+                 <a>Comprar</a>
+                 </div>
+                 </div>
+                
+                <div class="precio-col">
+                 <div class="precio-col-header">
+                 <h3>$23.000/Envio Nacional</h3>
+                 </div>
+                
+                <div class="precio-col-features">
+                    <p>Embalaje especial</p>
+                    <p>Rastreo avanzado</p>
+                    <p>Seguro de envío</p>
+                    <p></p>
+                 </div>
+                
+                 <div class="precio-col-comprar">
+                    <a>Comprar</a>
+                    </div>
+                    </div>
+                
+                </div>
+        </div>
+
         </section>
     </main>
 

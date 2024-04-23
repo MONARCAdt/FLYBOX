@@ -29,4 +29,6 @@ class PackageLogController extends Controller
 
         return redirect()->route('registro_paquetes');
     }
+
+    
 }

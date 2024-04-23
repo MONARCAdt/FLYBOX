@@ -32,10 +32,14 @@ Route::middleware('auth')->group(function () {
         return view('/registro_paquetes');
     })->name('registro_paquetes');
     
+    Route::get('paqueteria', function () {
+        return view('/paqueteria');
+    })->name('paqueteria');
+    
     Route::get('servicio', function () {
         return view('/servicio');
     })->name('servicio');
-    
+
     Route::get('paqueteria', function () {
         return view('/paqueteria');
     })->name('paqueteria');
@@ -56,10 +60,14 @@ Route::middleware('auth')->group(function () {
         return view('/npedidos');
     })->name('npedidos');
 
+    Route::get('/paquete/{numero_guia}', 'PaqueteController@mostrar');
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::get('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
     Route::post('/package-logs', [PackageLogController::class, 'store'])->name('package-log.store');
+    Route::get('/profile/{id}/edit', 'ProfileController@edit');
+    Route::put('/profile/{id}', 'ProfileController@update');
+
 });
 
 require __DIR__.'/auth.php';

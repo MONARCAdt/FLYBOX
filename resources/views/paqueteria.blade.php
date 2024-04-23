@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>FlyBox - Crear envío</title>
+    <title>FlyBox - Paqueteria</title>
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -158,7 +158,7 @@
 
 /* Estilos para el botón de enviar */
 .right-content button[type="submit"] {
-    background-color: #004491;
+    background-color: #4caf50;
     color: white;
     padding: 12px 20px;
     border: none;
@@ -23189,63 +23189,14 @@ body {
 
             <div id="layoutSidenav_content">
                 <main>
-                    <div class="container">
-                        <div class="content-wrapper">
-                            <div class="left-content">
-                                <h1 class="mt-4">REGISTRO DE PAQUETES</h1>
-                                <p>En esta zona, hemos implementado un sistema de registro de paquetes que tiene como objetivo principal agilizar y asegurar la entrega de todos los paquetes que recibimos. Sabemos que en ocasiones puede ser un desafío garantizar que todos los paquetes lleguen a sus destinatarios de manera oportuna y segura, y es por eso que hemos decidido dar un paso adelante en la gestión de este proceso.</p>
-                                <p>¿Qué significa esto para ti, nuestro valioso miembro de la comunidad? Significa que ahora puedes tener la tranquilidad de que tus paquetes serán registrados de manera eficiente en el momento en que lleguen a nuestras instalaciones. Ya no tendrás que preocuparte por la incertidumbre de si tu paquete ha sido recibido o no. Con nuestro sistema de registro de paquetes, podrás estar informado en todo momento sobre el estado y la ubicación de tus envíos.</p>
-                                <p>Además, al registrar tus paquetes en nuestra zona, estás contribuyendo a una comunidad más organizada y segura para todos. El registro de paquetes nos permite mantener un control adecuado sobre los artículos que ingresan y salen de nuestra área, lo que a su vez nos ayuda a garantizar la seguridad y el bienestar de todos los residentes.</p>
-                                <p>Así que te invito a aprovechar esta nueva herramienta que tenemos a disposición. Registra tus paquetes aquí y experimenta la tranquilidad de saber que tus envíos están en buenas manos. Juntos, podemos hacer de nuestra comunidad un lugar aún mejor para vivir y prosperar.</p>
-                            </div>
-                            <div class="right-content">
-                                <center><h1>Crear Nuevo Paquete</h1><br>
-                                    <form method="post" action="{{ route('package-log.store') }}">
-                                        @csrf
-                                        <div>
-                                            <label for="nombre_destinatario">Nombre del destinatario:</label>
-                                            <input type="text" id="nombre_destinatario" name="nombre_destinatario" required>
-                                        </div>
-
-                                        <div>
-                                            <label for="direccion_destino">Codigo del paquete:</label>
-                                            <input type="text" id="numero_paquete" name="direccion_destino" required>
-                                        </div>
-                                    
-                                        <div>
-                                            <label for="direccion_destino">Dirección de destino:</label>
-                                            <input type="text" id="direccion_destino" name="direccion_destino" required>
-                                        </div>
-                                    
-                                        <div>
-                                            <label for="ciudad_destino">Ciudad de destino:</label>
-                                            <input type="text" id="ciudad_destino" name="ciudad_destino" required>
-                                        </div>
-                                    
-                                        <div>
-                                            <label for="codigo_postal">Código Postal:</label>
-                                            <input type="text" id="codigo_postal" name="codigo_postal" required>
-                                        </div>
-                                    
-                                        <div>
-                                            <label for="contenido_paquete">Contenido del paquete:</label>
-                                            <textarea id="contenido_paquete" name="contenido_paquete" required></textarea>
-                                        </div>
-                                    
-                                        <div>
-                                            <label for="peso">Peso del paquete:</label>
-                                            <input type="number" id="peso" name="peso" required>
-                                        </div>
-                                    
-                                        <div>
-                                            <label for="fecha_envio">Fecha de envío:</label>
-                                            <input type="date" id="fecha_envio" name="fecha_envio" required>
-                                        </div>                                    
-                                        <button type="submit">Enviar paquete</button>
-                                    </form>
-                            </div></center> 
-                        </div>
-                    </div>
+                    <h1>Detalles del Paquete</h1>
+                    @if($paquete)
+                        <p>Número de Guía: {{ $paquete->numero_guia }}</p>
+                        <p>Contenido: {{ $paquete->contenido }}</p>
+                        <!-- Agrega más detalles del paquete según sea necesario -->
+                    @else
+                        <p>El paquete no se encontró.</p>
+                    @endif                 
                 </main>
             </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
