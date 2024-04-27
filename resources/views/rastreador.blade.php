@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>FlyBox - Inicio</title>
+    <title>FlyBox - Rastreador</title>
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -118,129 +118,245 @@
     }
 }
 
-.img-flybox {
-    max-width: 500px;
-    height: auto; /* Esto garantiza que la imagen mantenga su proporción original */
-}
-
-button {
-    background: rgb(0, 0, 0);
-    color: floralwhite;
-}
-/* accion cuando pasa el mouse */
-button:hover{
-    background:green;
-    color:rgb(0, 0, 0);
-}
-/* accion cuando se da click */
-button:active{
-    background:mediumspringgreen;
-    color: mediumvioletred;
-
-}
-h1{
-    color: rgb(255, 255, 255);
-    background: rgb(0, 45, 113);    
-    padding: 50px;
-    text-align: center;
-    font-size: 50px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    
-}
-/* h1:hover{
-    color:moccasin;
-    background: midnightblue;
-
-} */
-nav{
-    background: rgb(0, 0, 0);
-    padding: 10px;
-    display: flex;  
-    justify-content:space-around;
-
-}
-.nav-menu{  
-    display: inline-block;
-    background: #000000;
-    color: #f5f5f5;
-    padding: 10px 30px;
-   text-decoration: none;
-}
-.nav-menu:hover{
-    background: #ffffff;
-    color: #000000;
-}
-
-.mi-clase {
-    background-color: rgb(0, 0, 0);
-}
-
-.nav-menu:active{
-    background: rgb(223, 185, 33);
-}
-.colum{ 
-    background: #aaaaaa;
-    color: t#e2a024;
-    padding: 30px;
-    margin: 20px;
-    width: 70%;
-    font-size: 22px;
-    font-family: 'Open Sans', sans-serif;
-}
-.colum_info{ 
-    background: #aaaaaa;
-    color: t#e2a024;
-    padding: 20px;
-    margin: 20px;
-    width: 100%;
-    font-size: 22px;
-    font-family: 'Open Sans', sans-serif;
-}
-.colum_infoindex{ 
-    background: #aaaaaa;
-    color: t#e2a024;
-    padding: 30px;
-    margin: 20px;
-    width: 2000%;
-    font-size: 22px;
-    font-family: 'Open Sans', sans-serif;
-}
-.org{
-    display:inline-flex
-}
-
-
-        /* Estilos para el texto */
-        #hero .hero-text {
-            color: #000; /* Cambiado a negro para mayor legibilidad */
-            text-align: center;
-        }
-        /* Estilos para las secciones de Misión y Visión */
-        .mission-vision {
-            padding-top: 20px;
-        }
-        .mission-vision h3 {
-            text-align: center;
-        }
-
-        /* Agrega tus estilos CSS personalizados aquí */
-        /* Estilos para la imagen */
-        #hero {
-            background: url('ruta_de_la_imagen.jpg') center center no-repeat;
-            background-size: cover;
-            height: 100%;
-            width: 100%;
-        }
-        /* Estilos para el texto */
-        #hero .hero-text {
-            color: #000000;
-            text-align: center;
-        }
-
 .nav-link.active {
     background-color: #0b5ed7; /* Cambia "yourColor" por el color que desees */
     color: #0040ad; /* Cambia "#fff" por el color del texto que desees */
 }
+
+#tabla-precios {
+ display:inline-block;
+ width:100%;
+ margin-top:50px
+}
+
+/*Columnas*/
+
+.precio-col {
+ display:inline-block;
+ background-color:#f3f3f3;
+ width:100%;
+ max-width:500px;
+ border-radius:10px;
+ margin-bottom:50px;
+ box-shadow: 0px 2px 5px #ddd
+}
+
+@media screen and (min-width:768px) {
+ .precio-col {
+ width:32%;
+ float:left;
+ margin-right:2%
+ }
+ 
+ .precio-col:last-child {
+ margin-right:0
+ }
+}
+
+/*Headers*/
+
+.precio-col-header {
+ background-color:#333;
+ padding:20px;
+ border-top-left-radius:10px;
+ border-top-right-radius:10px
+}
+
+.precio-col:nth-child(2) .precio-col-header {
+ background-color:#3876b0
+}
+
+.precio-col-header h3 {
+ color:#f3f3f3;
+ text-align:center;
+ font-size:30px;
+ font-weight:600;
+ margin-bottom:0
+}
+
+.precio-col-header p {
+ text-align:center;
+ color:#f3f3f3;
+ font-size:14px;
+ margin-bottom:0
+}
+
+/*Características*/
+
+.precio-col-features {
+ padding: 0 20px 20px 20px
+}
+
+.precio-col-features p {
+ padding:20px 0;
+ margin:0;
+ text-align:center;
+ border-top:1px solid #ddd
+}
+
+.precio-col-features p:first-child,
+.precio-col-features p:last-child {
+ border-top:none
+}
+
+/*Comprar*/
+
+.precio-col-comprar {
+ padding:10px;
+ max-width:250px;
+ text-align:center;
+ background-color:#3876b0;
+ margin: 0 auto 20px;
+ border-radius:10px;
+ border: 2px solid #3876b0;
+ transition: all 0.3s
+}
+
+.precio-col-comprar a {
+ color:#f3f3f3;
+ padding:10px;
+ font-size:20px;
+ text-transform:uppercase;
+ transition: all 0.3s
+}
+
+.precio-col-comprar:hover {
+ background-color:#f3f3f3;
+ transition: all 0.3s
+}
+
+.precio-col-comprar:hover a {
+ color:#dd9933;
+ transition: all 0.3s
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.content-wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.left-content {
+    flex: 1;
+}
+
+.right-content {
+    flex: 1;
+    margin-left: 20px;
+}
+
+.form-wrapper {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.form-wrapper h2 {
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-style {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.input-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #999;
+}
+
+.btn-submit {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.btn-submit:hover {
+    background-color: #0056b3;
+}
+
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.content-wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.left-content {
+    flex: 1;
+}
+
+.right-content {
+    flex: 1;
+    margin-left: 20px;
+}
+
+.form-wrapper {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.form-wrapper h2 {
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-style {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.input-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #999;
+}
+
+.btn-submit {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.btn-submit:hover {
+    background-color: #0056b3;
+}
+
 
 body {
     margin: 0;
@@ -23029,7 +23145,7 @@ body {
                 <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown"
                  aria-expanded="false">{{ Auth::user()->name }}</a>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="{{route('edit')}}">Perfil</a></li>
+                <li><a class="dropdown-item" href="">Perfil</a></li>
                 <li>
                     <hr class="dropdown-divider" />
                 </li>
@@ -23043,7 +23159,6 @@ body {
         </li>
     </ul>
     </nav>
-
         <div id="layoutSidenav">
             <div id="layoutSidenav_nav">
                 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
@@ -23051,7 +23166,7 @@ body {
                         <div class="nav">
                             <div class="sb-sidenav-menu-heading">PAQUETERIA</div>
                             <a class="nav-link" href="{{route('dashboard')}}">
-                                <div class="background-color"></div>
+                                <div class="sb-nav-link-icon"></div>
                                 Inicio
                             </a>
                             <a class="nav-link" href="{{route('tarifaenvio')}}">
@@ -23063,7 +23178,7 @@ body {
                                 Paqueteria
                             </a>
                             <a class="nav-link" href="{{route('rastreador')}}">
-                                <div class="sb-nav-link-icon"></div>
+                                <div class="background-color"></div>
                                 Rastreador
                             </a>
                         </div>
@@ -23072,107 +23187,11 @@ body {
 
             <div id="layoutSidenav_content">
                 <main>
-                    <div class="container-fluid px-4">
-                        <h1 class="mt-4 text-center">Bienvenido a FlyBox, {{ Auth::user()->name }}</h1><br>
-                        <div class="dropdown text-center">
-                            <h2 id="navbarDropdown" data-bs-toggle="dropdown"></h2>
-                        </div>
-                        <ol class="breadcrumb mb-4">
-                            <div class="container-fluid container-xl d-flex align-items-center justify-content-center">
-                                <!-- Hero Section -->
-                                <div class="row">
-                                    <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center" id="hero">
-                                        <div class="hero-text">
-                                            <section>
-                                                <div class="card shadow border-0 rounded-4 mb-5">
-                                                    <div class="card-body p-5">
-                                                        <div class="row align-items-center gx-5">
-                                                            <div class="col text-center text-lg-start mb-4 mb-lg-0">
-                                                                <div class="bg-light p-4 rounded-4">
-                                                                <p>Bienvenido a FlyBox, tu compañero confiable en el mundo de la paquetería y la logística. En un mundo cada vez más conectado, reconocemos la importancia de ofrecer soluciones integrales y eficientes para el envío y rastreo de paquetes. En FlyBox, nos enorgullecemos de ofrecer una plataforma completa que no solo te permite enviar tus paquetes de manera rápida y segura, sino que también te brinda la tranquilidad de poder rastrearlos en tiempo real, desde el momento en que salen de tus manos hasta que llegan a su destino final.</p>
-                                            
-                                                                <p>En FlyBox, la seguridad y la confiabilidad son nuestras principales prioridades. Trabajamos arduamente para garantizar que tus paquetes estén protegidos en todo momento y que tu información personal se mantenga privada y segura. Nuestro equipo está constantemente monitoreando y mejorando nuestros sistemas para brindarte la mejor experiencia posible en cada envío.</p>
-                                                                
-                                                                <p>Además, en FlyBox no solo nos preocupamos por ofrecerte un excelente servicio de envío de paquetes, sino que también nos esforzamos por ser una empresa socialmente responsable y comprometida con el medio ambiente. Implementamos prácticas sostenibles en nuestra operación y buscamos constantemente formas de reducir nuestro impacto en el planeta.</p>
-                                                                
-                                                                <p>En resumen, en FlyBox no solo encontrarás una plataforma de paquetería, sino un socio confiable que está aquí para apoyarte en cada paso del camino. Únete a nosotros hoy y descubre por qué miles de personas confían en FlyBox para sus necesidades de envío y logística.</p>  
 
-                                                                </div><br>
-                                                            </div>
-                                                            <center><div class="col-lg-8"><div>
-                                                                <center><img src="https://images.pexels.com/photos/22756320/pexels-photo-22756320.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="img-flybox"></center>
-                                                            </div></div></center>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </section>
-                                            <section>
-                                                <h2>¿CUAL ES NUESTRA MISIÓN?</h2>
-                                                <div class="card shadow border-0 rounded-4 mb-5">
-                                                    <div class="card-body p-5">
-                                                        <div class="row align-items-center gx-5">
-                                                            <div class="col text-center text-lg-start mb-4 mb-lg-0">
-                                                                <div class="bg-light p-4 rounded-4">
-                                                                    <p>En FlyBox, nuestra principal prioridad es garantizar la seguridad y rapidez en el envío de productos para nuestros clientes y empresas asociadas. Nuestra misión consiste en asegurar que nuestros drones operen de manera funcional y efectiva, de modo que podamos brindar una experiencia satisfactoria a nuestros clientes y terceros.</p>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-lg-8"><div>
-                                                                <center><img src="https://images.pexels.com/photos/22751697/pexels-photo-22751697.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="img-flybox"></center>
-                                                            </div></div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </section>
-                                            <section>
-                                                <h2>¿CUAL ES NUESTRA VISIÓN?</h2>
-                                                <div class="card shadow border-0 rounded-4 mb-5">
-                                                    <div class="card-body p-5">
-                                                        <div class="row align-items-center gx-5">
-                                                            <div class="col text-center text-lg-start mb-4 mb-lg-0">
-                                                                <div class="bg-light p-4 rounded-4">
-                                                                    <p>En nuestra empresa de paquetería, tenemos la visión de liderar el mercado global ofreciendo servicios de la más alta calidad y confiabilidad. Para lograrlo, nos enfocamos en soluciones innovadoras que superen las expectativas de nuestros clientes y que al mismo tiempo, contribuyan de manera positiva al bienestar de la sociedad y al cuidado del medio ambiente. Estamos comprometidos con ofrecer un servicio excepcional y hacer nuestra parte para construir un mundo mejor y más sostenible.</p>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-lg-8"><div>
-                                                                <center><img src="https://media.istockphoto.com/id/1477603847/es/foto/levitando-cajas-de-cart%C3%B3n.jpg?s=612x612&w=0&k=20&c=jT-DR_AgYLtkplXCTYrvYh8YDRLB_VoKrdJ-niwZhyY=" class="img-flybox"></center>
-                                                            </div></div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </section>
-                                            <section>
-                                                <div class="card shadow border-0 rounded-4 mb-5">
-                                                    <div class="card-body p-5">
-                                                        <div class="row align-items-center gx-5">
-                                                            <div class="col text-center text-lg-start mb-4 mb-lg-0">
-                                                                <div class="bg-light p-4 rounded-4">
-                                                                <p>Bienvenido a FlyBox, tu compañero confiable en el mundo de la paquetería y la logística. En un mundo cada vez más conectado, reconocemos la importancia de ofrecer soluciones integrales y eficientes para el envío y rastreo de paquetes. En FlyBox, nos enorgullecemos de ofrecer una plataforma completa que no solo te permite enviar tus paquetes de manera rápida y segura, sino que también te brinda la tranquilidad de poder rastrearlos en tiempo real, desde el momento en que salen de tus manos hasta que llegan a su destino final.</p>
-                                            
-                                                                <p>En FlyBox, la seguridad y la confiabilidad son nuestras principales prioridades. Trabajamos arduamente para garantizar que tus paquetes estén protegidos en todo momento y que tu información personal se mantenga privada y segura. Nuestro equipo está constantemente monitoreando y mejorando nuestros sistemas para brindarte la mejor experiencia posible en cada envío.</p>
-                                                                
-                                                                <p>Además, en FlyBox no solo nos preocupamos por ofrecerte un excelente servicio de envío de paquetes, sino que también nos esforzamos por ser una empresa socialmente responsable y comprometida con el medio ambiente. Implementamos prácticas sostenibles en nuestra operación y buscamos constantemente formas de reducir nuestro impacto en el planeta.</p>
-                                                                
-                                                                <p>En resumen, en FlyBox no solo encontrarás una plataforma de paquetería, sino un socio confiable que está aquí para apoyarte en cada paso del camino. Únete a nosotros hoy y descubre por qué miles de personas confían en FlyBox para sus necesidades de envío y logística.</p>  
-
-                                                                </div><br>
-                                                            </div>
-                                                            <center><div class="col-lg-8"><div>
-                                                                <center><img src="https://images.pexels.com/photos/22756320/pexels-photo-22756320.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="img-flybox"></center>
-                                                            </div></div></center>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </section>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </ol>
-                    </div>
                 </main>
             </div>
-        
-        
+            
+            
 
 
                     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"

@@ -118,6 +118,142 @@
     }
 }
 
+    /* Estilo para el contenedor */
+    .select-container {
+        margin-bottom: 20px; /* Espacio entre el contenedor y otros elementos */
+    }
+
+    /* Estilo para el label */
+    .select-label {
+        display: block; /* Mostrar el label como bloque */
+        font-weight: bold; /* Negrita */
+        margin-bottom: 5px; /* Espacio entre el label y el select */
+    }
+
+    /* Estilo para el select */
+    .custom-select {
+        width: 100%; /* Ancho completo del contenedor */
+        padding: 10px; /* Espaciado interno */
+        border-radius: 5px; /* Bordes redondeados */
+        border: 1px solid #cacaca; /* Borde del select */
+        font-size: 16px; /* Tamaño del texto */
+        background-color: #f9f9f9; /* Color de fondo */
+    }
+
+#tabla-precios {
+ display:inline-block;
+ width:100%;
+ margin-top:50px
+}
+
+/*Columnas*/
+
+.precio-col {
+ display:inline-block;
+ background-color:#f3f3f3;
+ width:100%;
+ max-width:500px;
+ border-radius:10px;
+ margin-bottom:50px;
+ box-shadow: 0px 2px 5px #ddd
+}
+
+@media screen and (min-width:768px) {
+ .precio-col {
+ width:32%;
+ float:left;
+ margin-right:2%
+ }
+ 
+ .precio-col:last-child {
+ margin-right:0
+ }
+}
+
+/*Headers*/
+
+.precio-col-header {
+ background-color:#333;
+ padding:20px;
+ border-top-left-radius:10px;
+ border-top-right-radius:10px
+}
+
+.precio-col:nth-child(2) .precio-col-header {
+ background-color:#3876b0
+}
+
+.precio-col-header h3 {
+ color:#f3f3f3;
+ text-align:center;
+ font-size:30px;
+ font-weight:600;
+ margin-bottom:0
+}
+
+.precio-col-header p {
+ text-align:center;
+ color:#f3f3f3;
+ font-size:14px;
+ margin-bottom:0
+}
+
+/*Características*/
+
+.precio-col-features {
+ padding: 0 20px 20px 20px
+}
+
+.precio-col-features p {
+ padding:20px 0;
+ margin:0;
+ text-align:center;
+ border-top:1px solid #ddd
+}
+
+.precio-col-features p:first-child,
+.precio-col-features p:last-child {
+ border-top:none
+}
+
+/*Comprar*/
+
+.precio-col-comprar {
+ padding:10px;
+ max-width:250px;
+ text-align:center;
+ background-color:#3876b0;
+ margin: 0 auto 20px;
+ border-radius:10px;
+ border: 2px solid #3876b0;
+ transition: all 0.3s
+}
+
+.precio-col-comprar a {
+ color:#f3f3f3;
+ padding:10px;
+ font-size:20px;
+ text-transform:uppercase;
+ transition: all 0.3s
+}
+
+.precio-col-comprar:hover {
+ background-color:#f3f3f3;
+ transition: all 0.3s
+}
+
+.precio-col-comprar:hover a {
+ color:#dd9933;
+ transition: all 0.3s
+}
+
+/* Estilo para el botón activo */
+.nav-link.active {
+    background-color: #0b5ed7; /* Cambia "yourColor" por el color que desees */
+    color: #0040ad; /* Cambia "#fff" por el color del texto que desees */
+}
+
+
 /* Estilos generales */
 .right-content {
     margin: 50px auto;
@@ -23132,26 +23268,27 @@ body {
         <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i
                 class="fas fa-bars"></i></button>
         <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+
         </form>
         <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown"
-                    aria-expanded="false"></a>
-                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="#">Perfil</a></li>
-                    <li>
-                        <hr class="dropdown-divider" />
-                    </li>
-                    <li>
-                        <form action="{{ route('logout') }}" method="GET"> <!-- Cambiado a GET -->
-                            @csrf
-                            <button class="btn btn-black" type="submit">Logout</button>
-                        </form>                          
-                    </li>
-                    </ul>
+                 aria-expanded="false">{{ Auth::user()->name }}</a>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="">Perfil</a></li>
+                <li>
+                    <hr class="dropdown-divider" />
+                </li>
+                <li>
+                    <form action="{{ route('logout') }}" method="GET"> <!-- Cambiado a GET -->
+                        @csrf
+                        <button class="btn btn-black" type="submit">Logout</button>
+                    </form>                           
                 </li>
             </ul>
-        </nav>
+        </li>
+    </ul>
+    </nav>
         <div id="layoutSidenav">
             <div id="layoutSidenav_nav">
                 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
@@ -23162,9 +23299,9 @@ body {
                                 <div class="sb-nav-link-icon"></div>
                                 Inicio
                             </a>
-                            <a class="nav-link" href="{{route('registro_paquetes')}}">
-                                <div class="sb-nav-link-icon"></div>
-                                Crear envío
+                            <a class="nav-link" href="{{route('tarifaenvio')}}">
+                                <div class="background-color"></div>
+                                Crear envio
                             </a>
                             <a class="nav-link" href="{{route('paqueteria')}}">
                                 <div class="sb-nav-link-icon"></div>
@@ -23173,15 +23310,6 @@ body {
                             <a class="nav-link" href="{{route('rastreador')}}">
                                 <div class="sb-nav-link-icon"></div>
                                 Rastreador
-                            </a>
-                            <div class="sb-sidenav-menu-heading">INFORMACIÓN</div>
-                            <a class="nav-link" href="{{route('servicio')}}">
-                                <div class="sb-nav-link-icon"></div>
-                                Servicios
-                            </a>
-                            <a class="nav-link" href="{{route('vision_mision')}}">
-                                <div class="sb-nav-link-icon"></div>
-                                Mision y vision
                             </a>
                         </div>
                     </div>
@@ -23208,9 +23336,19 @@ body {
                                         </div>
 
                                         <div>
-                                            <label for="direccion_destino">Codigo del paquete:</label>
-                                            <input type="text" id="numero_paquete" name="direccion_destino" required>
+                                            <label for="numero_paquete">Codigo del paquete:</label>
+                                            <input type="number" id="numero_paquete" name="numero_paquete" required>
                                         </div>
+
+                                        <div class="select-container">
+                                            <label for="tarifa" class="select-label">Tarifa:</label>
+                                            <select name="tarifa" id="tarifa" class="custom-select">
+                                                <option value="Envió Estándar">Envió Estándar - $15,000</option>
+                                                <option value="Envió Express">Envió Express - $20,000</option>
+                                                <option value="Envió Nacional">Envió Nacional - $23,000</option>
+                                            </select>
+                                        </div>
+                                        
                                     
                                         <div>
                                             <label for="direccion_destino">Dirección de destino:</label>

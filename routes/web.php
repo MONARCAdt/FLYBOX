@@ -11,6 +11,7 @@ use App\Http\Controllers\PackageLogController;
 
 
 
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -52,19 +53,24 @@ Route::middleware('auth')->group(function () {
         return view('/vision_mision');
     })->name('vision_mision');
     
-    Route::get('profile', function () {
-        return view('edit');
-    })->name('profile');
+    Route::get('edit', function () {
+        return view('/profile/edit');
+    })->name('edit');
     
     Route::get('npedidos', function () {
         return view('/npedidos');
     })->name('npedidos');
+
+    Route::get('tarifaenvio', function () {
+        return view('/tarifaenvio');
+    })->name('tarifaenvio');
 
     Route::get('/paquete/{numero_guia}', 'PaqueteController@mostrar');
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::get('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
     Route::post('/package-logs', [PackageLogController::class, 'store'])->name('package-log.store');
+    Route::get('/buscar-paquete', [PackageLogController::class, 'buscarPaquete'])->name('buscar-paquete');
     Route::get('/profile/{id}/edit', 'ProfileController@edit');
     Route::put('/profile/{id}', 'ProfileController@update');
 

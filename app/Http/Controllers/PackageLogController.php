@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\PackageLog;
 
+
 class PackageLogController extends Controller
 {
     /**
@@ -15,20 +16,47 @@ class PackageLogController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'nombre_destinatario' => 'required|string|max:255',
-            'direccion_destino' => 'required|string|max:255',
-            'ciudad_destino' => 'required|string|max:255',
-            'codigo_postal' => 'required|string|max:10',
-            'contenido_paquete' => 'required|string',
-            'peso' => 'required|numeric',
-            'fecha_envio' => 'required|date',
-        ]);
-
-        $packageLog = PackageLog::create($request->all());
-
-        return redirect()->route('registro_paquetes');
-    }
-
+        // Determinar el precio según la tarifa seleccionada
+        $tarifa = $request->input('tarifa');
+        $precio = 0;
+        
+        switch ($tarifa) {
+            case 'Envió Estándar':
+                $precio = 15000;
+                break;
+            case 'Envió Express':
+                $precio = 20000;
+                break;
+            case 'Envió Nacional':
+                $precio = 23000;
+                break;
+            default:
+                // Manejar el caso por defecto si es necesario
+                break;
+        }
     
+        // Guardar el registro en la base de datos
+        PackageLog::create([
+            'numero_paquete' => $request->input('numero_paquete'),
+            'nombre_destinatario' => $request->input('nombre_destinatario'),
+            'direccion_destino' => $request->input('direccion_destino'),
+            'ciudad_destino' => $request->input('ciudad_destino'),
+            'codigo_postal' => $request->input('codigo_postal'),
+            'contenido_paquete' => $request->input('contenido_paquete'),
+            'peso' => $request->input('peso'),
+            'fecha_envio' => $request->input('fecha_envio'),
+            'tarifa' => $tarifa,
+            'precio' => $precio,
+        ]);
+    
+        return redirect()->back()->with('success', 'Registro guardado correctamente');
+    }
+    
+    public function buscarPaquete(Request $request)
+    {
+        $codigoPaquete = $request->input('numero_paquete');
+        $paquete = PackageLog::where('numero_paquete', $codigoPaquete)->first();
+        
+        return view('nombre_de_la_vista', compact('paquete'));
+    }
 }

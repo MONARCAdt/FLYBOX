@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>FlyBox - Servicios</title>
+    <title>FlyBox - Crear envio</title>
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -116,6 +116,32 @@
     :root {
         scroll-behavior: smooth;
     }
+}
+
+    /* Estilos para el botón */
+    .custom-button {
+        display: inline-block;
+        background-color: #050979; /* Color de fondo */
+        border: none; /* Sin borde */
+        color: white; /* Color del texto */
+        text-align: center;
+        text-decoration: none;
+        font-size: 16px; /* Tamaño del texto */
+        padding: 10px 24px; /* Espaciado interno */
+        border-radius: 5px; /* Bordes redondeados */
+        cursor: pointer; /* Cambiar cursor al pasar el ratón */
+        transition: background-color 0.3s; /* Transición suave */
+    }
+
+    /* Estilos para cambiar el color del botón al pasar el ratón */
+    .custom-button:hover {
+        background-color: #020790; /* Cambiar color de fondo */
+    }
+
+
+.nav-link.active {
+    background-color: #0b5ed7; /* Cambia "yourColor" por el color que desees */
+    color: #0040ad; /* Cambia "#fff" por el color del texto que desees */
 }
 
 #tabla-precios {
@@ -23128,37 +23154,32 @@ body {
 </head>
 
 <body class="sb-nav-fixed">
-        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-            <a class="navbar-brand ps-3" href="{{route('registro_paquetes')}}">FLYBOX</a>
-            <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i
-                    class="fas fa-bars"></i></button>
-            <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
-                <div class="input-group">
-                    <input class="form-control" type="text" placeholder="Buscar..." aria-label="Search for..."
-                        aria-describedby="btnNavbarSearch" />
-                    <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i
-                            class="fas fa-search"></i></button>
-                </div>
-            </form>
-            <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown"
-                        aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
-                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#!">Activity Log</a></li>
-                        <li>
-                            <hr class="dropdown-divider" />
-                        </li>
-                        <li>
-                            <form action="{{ route('logout') }}" method="GET"> <!-- Cambiado a GET -->
-                                @csrf
-                                <button class="btn btn-black" type="submit">Logout</button>
-                            </form>                         
-                        </li>
-                    </ul>
+    <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+        <a class="navbar-brand ps-3" href="index.html">FLYBOX</a>
+        <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i
+                class="fas fa-bars"></i></button>
+        <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+
+        </form>
+        <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown"
+                 aria-expanded="false">{{ Auth::user()->name }}</a>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="">Perfil</a></li>
+                <li>
+                    <hr class="dropdown-divider" />
+                </li>
+                <li>
+                    <form action="{{ route('logout') }}" method="GET"> <!-- Cambiado a GET -->
+                        @csrf
+                        <button class="btn btn-black" type="submit">Logout</button>
+                    </form>                           
                 </li>
             </ul>
-        </nav>
+        </li>
+    </ul>
+    </nav>
         <div id="layoutSidenav">
             <div id="layoutSidenav_nav">
                 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
@@ -23169,9 +23190,9 @@ body {
                                 <div class="sb-nav-link-icon"></div>
                                 Inicio
                             </a>
-                            <a class="nav-link" href="{{route('registro_paquetes')}}">
-                                <div class="sb-nav-link-icon"></div>
-                                Registro de paqueteria
+                            <a class="nav-link" href="{{route('tarifaenvio')}}">
+                                <div class="background-color"></div>
+                                Crear envio
                             </a>
                             <a class="nav-link" href="{{route('paqueteria')}}">
                                 <div class="sb-nav-link-icon"></div>
@@ -23180,15 +23201,6 @@ body {
                             <a class="nav-link" href="{{route('rastreador')}}">
                                 <div class="sb-nav-link-icon"></div>
                                 Rastreador
-                            </a>
-                            <div class="sb-sidenav-menu-heading">INFORMACIÓN</div>
-                            <a class="nav-link" href="{{route('servicio')}}">
-                                <div class="sb-nav-link-icon"></div>
-                                Servicios
-                            </a>
-                            <a class="nav-link" href="{{route('vision_mision')}}">
-                                <div class="sb-nav-link-icon"></div>
-                                Mision y vision
                             </a>
                         </div>
                     </div>
@@ -23208,14 +23220,10 @@ body {
                                      </div>
                                     
                                     <div class="precio-col-features">
-                                        <p>Embalaje especial</p>
+                                        <p>Entrega de 7 a 8 Horas</p>
                                         <p>Rastreo avanzado</p>
                                         <p>Seguro de envío</p>
                                         <p></p>
-                                     </div>
-                                    
-                                    <div class="precio-col-comprar">
-                                     <a>Comprar</a>
                                      </div>
                                      </div>
                                     
@@ -23225,14 +23233,10 @@ body {
                                      </div>
                                     
                                     <div class="precio-col-features">
-                                        <p>Embalaje especial</p>
+                                        <p>Envio de 4 a 5 Horas</p>
                                         <p>Rastreo avanzado</p>
                                         <p>Seguro de envío</p>
                                         <p></p>
-                                     </div>
-                                    
-                                    <div class="precio-col-comprar">
-                                     <a>Comprar</a>
                                      </div>
                                      </div>
                                     
@@ -23242,21 +23246,22 @@ body {
                                      </div>
                                     
                                     <div class="precio-col-features">
-                                        <p>Embalaje especial</p>
+                                        <p>Envio de 1 a 2 Horas</p>
                                         <p>Rastreo avanzado</p>
                                         <p>Seguro de envío</p>
                                         <p></p>
                                      </div>
-                                    
-                                     <div class="precio-col-comprar">
-                                        <a>Comprar</a>
-                                        </div>
-                                        </div>
-                                    
+
                                     </div>
+                                    
+                                </div>
                             </div>
                         </div>
                     </div>
+                    <center>
+                        <!-- Botón estilizado -->
+                        <button class="custom-button" type="submit" onclick="window.location.href='{{ route('registro_paquetes') }}'">CONTINUAR</button>
+                    </center>
                 </main>
             </div>
             

@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('package_logs', function (Blueprint $table) {
-            $table->id()->unique();
+            $table->id();
             $table->string('numero_paquete');
             $table->string('nombre_destinatario');
             $table->string('direccion_destino');
@@ -21,7 +21,9 @@ return new class extends Migration
             $table->string('contenido_paquete');
             $table->string('peso');
             $table->string('fecha_envio');
-            $table->timestamps(); // Corrección aquí
+            $table->string('tarifa');
+            $table->decimal('precio', 8, 2); // Agregar campo de precio
+            $table->timestamps();
         });
     }
 

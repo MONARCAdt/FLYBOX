@@ -11,11 +11,14 @@ class PackageLog extends Model
 
     protected $fillable = [
         'nombre_destinatario',
+        'numero_paquete',
         'direccion_destino',
         'ciudad_destino',
         'codigo_postal',
         'contenido_paquete',
         'peso',
+        'tarifa',
+        'precio',
         'fecha_envio',
     ];
 }
