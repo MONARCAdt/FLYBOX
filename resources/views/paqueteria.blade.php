@@ -134,6 +134,16 @@
             margin-top: 20px;
         }
 
+        .cta {
+    display: inline-block;
+    background-color: #2091F9;
+    justify-self: center;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 13px 30px;
+    border-radius: 32px;
+}
+
         th, td {
             border: 1px solid #dddddd;
             text-align: left;
@@ -23197,7 +23207,7 @@
                                 Inicio
                             </a>
                             <a class="nav-link" href="{{route('tarifaenvio')}}">
-                                <div class="background-color"></div>
+                                <div class="sb-nav-link-icon"></div>
                                 Crear envio
                             </a>
                             <a class="nav-link" href="{{route('paqueteria')}}">
@@ -23214,7 +23224,7 @@
                     <div id="layoutSidenav_content">
                         <main>
                             <section>
-                                <CENTER><h1 class="mt-4">Busqueda del paquete</h1></CENTER><br><br>
+                                <CENTER><h1 class="mt-4">BUSQUEDA DEL PAQUETE</h1></CENTER><br><br>
                                 <div class="card shadow border-0 rounded-4 mb-5">
                                     <div class="card-body p-5">
                                         <div class="row align-items-center gx-5">
@@ -23226,8 +23236,9 @@
                                             <div class="col-lg-8"><div>
                                                 <div class="container">
                                                     <form action="{{ route('buscar-paquete') }}" method="GET" class="search-form" data-aos="fade-up" data-aos-delay="200">
-                                                        <input type="text" name="numero_paquete" placeholder="Ingrese el número del paquete">
-                                                        <center><button type="submit" class="btn btn-primary">Buscar</button></center><br><br>
+                                                        <h1 class="hero__title">Rastrea tu pedido</h1>
+                                                        <center><p class="imput-color"><input type="text" name="numero_paquete" id="nguia"></p></center>
+                                                        <center><button type="submit" class="cta">BUSCAR PEDIDO</button></center><br><br>
                                                     </form>
                                                 
                                                     @if(isset($paquete))
