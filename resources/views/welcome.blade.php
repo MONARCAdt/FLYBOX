@@ -181,7 +181,7 @@ body {
 }
 
 .logo img {
-  max-height: 500px; /* Ajusta el tamaño del logo según tus necesidades */
+  max-height: 150px; /* Ajusta el tamaño del logo según tus necesidades */
 }
 
 #nguia {
@@ -872,8 +872,8 @@ button:hover {
 
     <header class="hero">
         <nav class="nav container">
-            <div class="logo">
-                <img src="blob:https://comfandiedu-my.sharepoint.com/49b2338a-f65b-4b72-a9eb-fe3eb805da94" alt="">
+            <div class="logo img">
+                <img src="https://images.pexels.com/photos/22756320/pexels-photo-22756320.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="">
               </div>
                         @if (Route::has('login'))
                             <nav class="-mx-3 flex flex-1 justify-end">

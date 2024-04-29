@@ -7,7 +7,8 @@ use Illuminate\Session\Middleware\AuthenticateSession;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PackageLogController;
-
+use App\Http\Controllers\PerfilController;
+use App\Http\Controllers\PdfController;
 
 
 Route::get('/', function () {
@@ -69,10 +70,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
     Route::post('/package-logs', [PackageLogController::class, 'store'])->name('package-log.store');
     Route::get('/buscar-paquete', [PackageLogController::class, 'buscarPaquete'])->name('buscar-paquete');
+    Route::get('/buscar-paquete/pdf', [PackageLogController::class, 'pdf'])->name('buscar-paquete.pdf');
     Route::post('/profile/update', [PackageLogController::class, 'updateProfile'])->name('profile.update');
-    Route::get('/profile/{id}/edit', 'ProfileController@edit');
-    Route::put('/profile/{id}', 'ProfileController@update');
-
+    Route::get('/perfil/editar', [PerfilController::class, 'edit'])->name('perfil.edit');
+    Route::put('/perfil', [PerfilController::class, 'update'])->name('perfil.update');
 });
 
 require __DIR__.'/auth.php';

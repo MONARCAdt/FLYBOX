@@ -23041,7 +23041,7 @@ body {
                 <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown"
                  aria-expanded="false">{{ Auth::user()->name }}</a>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="{{route('perfil')}}">Perfil</a></li>
+                <li><a class="dropdown-item" href="{{ route('perfil.edit') }}">Editar perfil</a></li>
                 <li>
                     <hr class="dropdown-divider" />
                 </li>
@@ -23158,14 +23158,18 @@ body {
                                                         <div class="row align-items-center gx-5">
                                                             <div class="col text-center text-lg-start mb-4 mb-lg-0">
                                                                 <div class="bg-light p-4 rounded-4">
-                                                                <p>Bienvenido a FlyBox, tu compañero confiable en el mundo de la paquetería y la logística. En un mundo cada vez más conectado, reconocemos la importancia de ofrecer soluciones integrales y eficientes para el envío y rastreo de paquetes. En FlyBox, nos enorgullecemos de ofrecer una plataforma completa que no solo te permite enviar tus paquetes de manera rápida y segura, sino que también te brinda la tranquilidad de poder rastrearlos en tiempo real, desde el momento en que salen de tus manos hasta que llegan a su destino final.</p>
-                                            
-                                                                <p>En FlyBox, la seguridad y la confiabilidad son nuestras principales prioridades. Trabajamos arduamente para garantizar que tus paquetes estén protegidos en todo momento y que tu información personal se mantenga privada y segura. Nuestro equipo está constantemente monitoreando y mejorando nuestros sistemas para brindarte la mejor experiencia posible en cada envío.</p>
-                                                                
-                                                                <p>Además, en FlyBox no solo nos preocupamos por ofrecerte un excelente servicio de envío de paquetes, sino que también nos esforzamos por ser una empresa socialmente responsable y comprometida con el medio ambiente. Implementamos prácticas sostenibles en nuestra operación y buscamos constantemente formas de reducir nuestro impacto en el planeta.</p>
-                                                                
-                                                                <p>En resumen, en FlyBox no solo encontrarás una plataforma de paquetería, sino un socio confiable que está aquí para apoyarte en cada paso del camino. Únete a nosotros hoy y descubre por qué miles de personas confían en FlyBox para sus necesidades de envío y logística.</p>  
-
+                                                                    <p>Hace unos años, en un mundo donde la innovación tecnológica estaba en pleno auge, un grupo de amigos apasionados por la tecnología y la logística se reunió en un pequeño café de la ciudad. Mientras disfrutaban de sus bebidas calientes, discutieron sobre cómo podrían mejorar la entrega de paquetes en su comunidad.</p>
+        
+                                                                    <p>Entre sorbos de café y emocionantes conversaciones, surgió la idea de utilizar drones para realizar entregas rápidas y eficientes. La idea parecía descabellada al principio, pero pronto se convirtió en una visión apasionante que los impulsaría a iniciar su propio negocio.</p>
+                                                            
+                                                                    <p>Con un espíritu emprendedor y determinación, el grupo de amigos comenzó a investigar y desarrollar prototipos de drones de entrega. Pasaron días y noches probando diferentes diseños, optimizando la tecnología y superando obstáculos técnicos. Finalmente, después de meses de arduo trabajo, lograron crear un prototipo funcional que superaba todas sus expectativas.</p>
+                                                                    
+                                                                    <p>Empoderados por su éxito inicial, decidieron dar el siguiente paso y fundar su propia empresa de envío de paquetería por drones. Así nació "FlyBox", una empresa dedicada a revolucionar la industria de la logística con tecnología innovadora.</p>
+                                                                    
+                                                                    <p>El equipo de "FlyBox" se embarcó en un viaje emocionante y desafiante. Se enfrentaron a numerosos desafíos, desde la obtención de licencias y permisos regulatorios hasta la creación de una infraestructura de entrega segura y confiable. Sin embargo, cada obstáculo fue una oportunidad para crecer y aprender, y el equipo se mantuvo unido con determinación y pasión por su visión compartida.</p>
+                                                                    
+                                                                    <p>Desde aquel primer encuentro en el café hasta convertirse en una empresa exitosa y visionaria, el viaje de "FlyBox" demostró que con determinación, creatividad y un equipo comprometido, cualquier sueño es posible de alcanzar. Y así, con sus drones volando alto en el cielo, "FlyBox" continuó escribiendo su historia de éxito, llevando consigo la promesa de un futuro más brillante y lleno de posibilidades.</p>
+                                                            
                                                                 </div><br>
                                                             </div>
                                                             <center><div class="col-lg-8"><div>

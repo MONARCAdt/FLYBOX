@@ -3463,6 +3463,60 @@ fieldset:disabled .btn {
     }
 }
 
+/* Estilos para el contenedor del formulario */
+.container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Estilos para los mensajes de error */
+.error-messages {
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    border-radius: 5px;
+}
+
+/* Estilos para los campos del formulario */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"],
+.form-group input[type="file"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Estilos para el botón de enviar */
+.btn-submit {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-submit:hover {
+    background-color: #0056b3;
+}
+
+
 .dropup,
 .dropend,
 .dropdown,
@@ -23041,7 +23095,7 @@ body {
                 <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown"
                  aria-expanded="false">{{ Auth::user()->name }}</a>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="{{route('perfil')}}">Perfil</a></li>
+                <li><a class="dropdown-item" href="{{ route('perfil.edit') }}">Editar perfil</a></li>
                 <li>
                     <hr class="dropdown-divider" />
                 </li>
@@ -23085,45 +23139,75 @@ body {
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid px-4">
-                        <h1 class="mt-4 text-center">Bienvenido a FlyBox, {{ Auth::user()->name }}</h1><br>
+                        <h1 class="mt-4 text-center">PERFIL DE {{ Auth::user()->name }}</h1><br>
                         <div class="dropdown text-center">
                             <h2 id="navbarDropdown" data-bs-toggle="dropdown"></h2>
                         </div>
                         <ol class="breadcrumb mb-4">
-                           <!-- Mostrar mensajes de éxito o error -->
-@if (session('success'))
-<div class="alert alert-success">
-    {{ session('success') }}
-</div>
-@endif
-
-@if ($errors->any())
-<div class="alert alert-danger">
-    <ul>
-        @foreach ($errors->all() as $error)
-            <li>{{ $error }}</li>
-        @endforeach
-    </ul>
-</div>
-@endif
-
-<!-- Formulario de edición de perfil -->
-<form action="{{ route('profile.update') }}" method="POST" enctype="multipart/form-data">
-@csrf
-<label for="name">Name:</label>
-<input type="text" name="name" value="{{ old('name', $user->name) }}">
-<label for="email">Email:</label>
-<input type="email" name="email" value="{{ old('email', $user->email) }}">
-<label for="password">Password:</label>
-<input type="password" name="password">
-<label for="password_confirmation">Confirm Password:</label>
-<input type="password" name="password_confirmation">
-<label for="profile_picture">Profile Picture:</label>
-<input type="file" name="profile_picture">
-<button type="submit">GUARDAR</button>
-</form>
-
-                        </ol>
+                            <!DOCTYPE html>
+                            <html lang="en">
+                            <head>
+                                <meta charset="UTF-8">
+                                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                                <title>Editar Perfil</title>
+                            </head>
+                            <body>
+                                <div class="container">
+                                    <!-- Mostrar errores de validación -->
+                                    @if ($errors->any())
+                                        <div class="error-messages">
+                                            <ul>
+                                                @foreach ($errors->all() as $error)
+                                                    <li>{{ $error }}</li>
+                                                @endforeach
+                                            </ul>
+                                        </div>
+                                    @endif
+                                
+                                    <!-- Formulario de edición de perfil -->
+                                    <form action="{{ route('perfil.update') }}" method="POST" enctype="multipart/form-data">
+                                        @csrf
+                                        @method('PUT')
+                                
+                                        <!-- Campo de nombre -->
+                                        <div class="form-group">
+                                            <label for="name">Nombre:</label>
+                                            <input type="text" id="name" name="name" value="{{ old('name', $perfil->name) }}" required>
+                                        </div>
+                                
+                                        <!-- Campo de correo electrónico -->
+                                        <div class="form-group">
+                                            <label for="email">Correo electrónico:</label>
+                                            <input type="email" id="email" name="email" value="{{ old('email', $perfil->email) }}" required>
+                                        </div>
+                                
+                                        <!-- Campo de nueva contraseña -->
+                                        <div class="form-group">
+                                            <label for="password">Nueva contraseña:</label>
+                                            <input type="password" id="password" name="password" required>
+                                        </div>
+                                
+                                        <!-- Campo de confirmación de nueva contraseña -->
+                                        <div class="form-group">
+                                            <label for="password_confirmation">Confirmar contraseña:</label>
+                                            <input type="password" id="password_confirmation" name="password_confirmation" required>
+                                        </div>
+                                
+                                        <!-- Campo de imagen de perfil -->
+                                        <div class="form-group">
+                                            <label for="profile_picture">Imagen de perfil:</label>
+                                            <input type="file" id="profile_picture" name="profile_picture">
+                                        </div>
+                                
+                                        <!-- Botón para enviar el formulario -->
+                                        <div>
+                                            <button type="submit" class="btn-submit">Guardar cambios</button>
+                                        </div>
+                                    </form>
+                            
+                            </body>
+                            </html>
+                                                    </ol>
                     </div>
                 </main>
             </div>

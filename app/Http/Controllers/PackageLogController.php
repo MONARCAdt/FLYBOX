@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\PackageLog;
 use App\Models\Paquete;
+use PDF;
 
 
 class PackageLogController extends Controller
@@ -62,4 +63,5 @@ class PackageLogController extends Controller
 
         return view('paqueteria', compact('paquete'));
     }
+
 }
