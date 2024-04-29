@@ -23026,8 +23026,6 @@ body {
 <body class="sb-nav-fixed">
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
         <a class="navbar-brand ps-3" href="index.html">FLYBOX</a>
-        <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i
-                class="fas fa-bars"></i></button>
         <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
 
         </form>
@@ -23153,23 +23151,24 @@ body {
                                                 </div>
                                             </section>
                                             <section>
+                                                <h2>HISTORIA DE FLYBOX</h2>
                                                 <div class="card shadow border-0 rounded-4 mb-5">
                                                     <div class="card-body p-5">
                                                         <div class="row align-items-center gx-5">
                                                             <div class="col text-center text-lg-start mb-4 mb-lg-0">
                                                                 <div class="bg-light p-4 rounded-4">
-                                                                    <p>Hace unos años, en un mundo donde la innovación tecnológica estaba en pleno auge, un grupo de amigos apasionados por la tecnología y la logística se reunió en un pequeño café de la ciudad. Mientras disfrutaban de sus bebidas calientes, discutieron sobre cómo podrían mejorar la entrega de paquetes en su comunidad.</p>
+                                                                    <p>Hace unos años, en un mundo donde la congestión del tráfico y la necesidad de entregas rápidas eran constantes, un grupo de amigos con una pasión compartida por la tecnología y la innovación se reunieron para abordar este desafío. Imaginaron un futuro donde las entregas pudieran realizarse de manera rápida, eficiente y sin obstáculos.
+
+                                                                    </p>
         
-                                                                    <p>Entre sorbos de café y emocionantes conversaciones, surgió la idea de utilizar drones para realizar entregas rápidas y eficientes. La idea parecía descabellada al principio, pero pronto se convirtió en una visión apasionante que los impulsaría a iniciar su propio negocio.</p>
+                                                                    <p>La primera tarea fue resolver los desafíos técnicos. Desarrollaron drones autónomos capaces de transportar paquetes de forma segura y eficiente. Estos drones estaban equipados con tecnología avanzada de navegación y comunicación para garantizar entregas precisas y sin problemas.</p>
                                                             
-                                                                    <p>Con un espíritu emprendedor y determinación, el grupo de amigos comenzó a investigar y desarrollar prototipos de drones de entrega. Pasaron días y noches probando diferentes diseños, optimizando la tecnología y superando obstáculos técnicos. Finalmente, después de meses de arduo trabajo, lograron crear un prototipo funcional que superaba todas sus expectativas.</p>
+                                                                    <p>Además, se embarcaron en una campaña de concienciación pública para educar a la gente sobre los beneficios de la entrega de drones y disipar cualquier temor o escepticismo. Organizaron demostraciones en vivo y ofrecieron pruebas gratuitas para mostrar la eficacia y la seguridad de su servicio.
+
+                                                                    </p>
                                                                     
-                                                                    <p>Empoderados por su éxito inicial, decidieron dar el siguiente paso y fundar su propia empresa de envío de paquetería por drones. Así nació "FlyBox", una empresa dedicada a revolucionar la industria de la logística con tecnología innovadora.</p>
-                                                                    
-                                                                    <p>El equipo de "FlyBox" se embarcó en un viaje emocionante y desafiante. Se enfrentaron a numerosos desafíos, desde la obtención de licencias y permisos regulatorios hasta la creación de una infraestructura de entrega segura y confiable. Sin embargo, cada obstáculo fue una oportunidad para crecer y aprender, y el equipo se mantuvo unido con determinación y pasión por su visión compartida.</p>
-                                                                    
-                                                                    <p>Desde aquel primer encuentro en el café hasta convertirse en una empresa exitosa y visionaria, el viaje de "FlyBox" demostró que con determinación, creatividad y un equipo comprometido, cualquier sueño es posible de alcanzar. Y así, con sus drones volando alto en el cielo, "FlyBox" continuó escribiendo su historia de éxito, llevando consigo la promesa de un futuro más brillante y lleno de posibilidades.</p>
-                                                            
+                                                                    <p>Hoy en día, la empresa de envío de paquetería mediante drones es una historia de éxito. Han expandido sus operaciones a nivel nacional, brindando un servicio rápido, eficiente y respetuoso con el medio ambiente.</p>
+                                                                                                                                
                                                                 </div><br>
                                                             </div>
                                                             <center><div class="col-lg-8"><div>
