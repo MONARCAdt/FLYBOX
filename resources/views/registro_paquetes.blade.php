@@ -23349,7 +23349,12 @@ body {
                                             </select>
                                         </div>
                                         
-                                    
+
+                                        <div>
+                                            <label for="direccion_destino">Dirección de salida:</label>
+                                            <input type="text" id="direccion_salidaa" name="direccion_salida" required>
+                                        </div>
+
                                         <div>
                                             <label for="direccion_destino">Dirección de destino:</label>
                                             <input type="text" id="direccion_destino" name="direccion_destino" required>

@@ -49,6 +49,10 @@
 
 /*Columnas*/
 
+.imput-color {
+    color: black; /* Establece el color del texto en blanco */
+}
+
 .precio-col {
  display:inline-block;
  background-color:#f3f3f3;
@@ -907,8 +911,8 @@ button:hover {
 
         <section class="hero__container container">
             <h1 class="hero__title">Rastrea tu pedido</h1>
-            <p class="text_color"><input type="text" name="numero_guia" id="nguia"></p>
-            <a href="{{route('npedidos')}}" class="cta">BUSCAR PEDIDO</a>
+            <p class="imput-color"><input type="text" name="numero_paquete" id="nguia"></p>
+            <a href="{{route('paqueteria')}}" class="cta">BUSCAR PEDIDO</a>
         </section>
     </header>
 
@@ -959,67 +963,6 @@ button:hover {
                     <center><p class="knowledge__paragraph">En nuestra empresa de paquetería, tenemos la visión de liderar el mercado global ofreciendo servicios de la más alta calidad y confiabilidad. Para lograrlo, nos enfocamos en soluciones innovadoras que superen las expectativas de nuestros clientes y que al mismo tiempo, contribuyan de manera positiva al bienestar de la sociedad y al cuidado del medio ambiente. Estamos comprometidos con ofrecer un servicio excepcional y hacer nuestra parte para construir un mundo mejor y más sostenible.</p></center>
                 </div>
             </div>
-        </section>
-
-
-        <section class="container about">
-            <center><h1 class="mt-4">SERVICIOS</h1></center>
-            <div id="tabla-precios">
-
-                <div class="precio-col">
-                 <div class="precio-col-header">
-                 <h3>$15.000/Envio estandar</h3>
-                 </div>
-                
-                <div class="precio-col-features">
-                    <p>Embalaje especial</p>
-                    <p>Rastreo avanzado</p>
-                    <p>Seguro de envío</p>
-                    <p></p>
-                 </div>
-                
-                <div class="precio-col-comprar">
-                 <a>Comprar</a>
-                 </div>
-                 </div>
-                
-                <div class="precio-col">
-                 <div class="precio-col-header">
-                    <h3>$20.000/Envio express</h3>
-                 </div>
-                
-                <div class="precio-col-features">
-                    <p>Embalaje especial</p>
-                    <p>Rastreo avanzado</p>
-                    <p>Seguro de envío</p>
-                    <p></p>
-                 </div>
-                
-                <div class="precio-col-comprar">
-                 <a>Comprar</a>
-                 </div>
-                 </div>
-                
-                <div class="precio-col">
-                 <div class="precio-col-header">
-                 <h3>$23.000/Envio Nacional</h3>
-                 </div>
-                
-                <div class="precio-col-features">
-                    <p>Embalaje especial</p>
-                    <p>Rastreo avanzado</p>
-                    <p>Seguro de envío</p>
-                    <p></p>
-                 </div>
-                
-                 <div class="precio-col-comprar">
-                    <a>Comprar</a>
-                    </div>
-                    </div>
-                
-                </div>
-        </div>
-
         </section>
     </main>
 

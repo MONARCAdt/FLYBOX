@@ -374,7 +374,7 @@ $mensaje = $mensaje ?? '';
                                                         placeholder="Contraseña" id="password" autocomplete="off">
                                                     <i class="input-icon uil uil-lock-alt"></i>
                                                 </div>
-                                                <button class="btn mt-4">Crear cuenta</button>
+                                                <button class="btn mt-4"">Crear cuenta</button>
                                             </form>
                                         </div>
                                     </div>

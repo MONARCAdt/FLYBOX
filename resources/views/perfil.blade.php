@@ -188,7 +188,7 @@ nav{
     font-family: 'Open Sans', sans-serif;
 }
 
-.img-profile {
+img {
     border-radius: 50%;
     width: 150px;
     height: 150px;
@@ -23033,7 +23033,7 @@ body {
         </form>
         <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
             @if (Auth::user()->profile_picture)
-            <img src="{{ Storage::url(Auth::user()->profile_picture) }}" alt="Perfil" class="img-profile">
+            <img src="{{ Storage::url(Auth::user()->profile_picture) }}" alt="Perfil">
         @else
         <i class="input-icon uil uil-user"></i>
         @endif
@@ -23090,95 +23090,39 @@ body {
                             <h2 id="navbarDropdown" data-bs-toggle="dropdown"></h2>
                         </div>
                         <ol class="breadcrumb mb-4">
-                            <div class="container-fluid container-xl d-flex align-items-center justify-content-center">
-                                <!-- Hero Section -->
-                                <div class="row">
-                                    <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center" id="hero">
-                                        <div class="hero-text">
-                                            <section>
-                                                <div class="card shadow border-0 rounded-4 mb-5">
-                                                    <div class="card-body p-5">
-                                                        <div class="row align-items-center gx-5">
-                                                            <div class="col text-center text-lg-start mb-4 mb-lg-0">
-                                                                <div class="bg-light p-4 rounded-4">
-                                                                <p>Bienvenido a FlyBox, tu compañero confiable en el mundo de la paquetería y la logística. En un mundo cada vez más conectado, reconocemos la importancia de ofrecer soluciones integrales y eficientes para el envío y rastreo de paquetes. En FlyBox, nos enorgullecemos de ofrecer una plataforma completa que no solo te permite enviar tus paquetes de manera rápida y segura, sino que también te brinda la tranquilidad de poder rastrearlos en tiempo real, desde el momento en que salen de tus manos hasta que llegan a su destino final.</p>
-                                            
-                                                                <p>En FlyBox, la seguridad y la confiabilidad son nuestras principales prioridades. Trabajamos arduamente para garantizar que tus paquetes estén protegidos en todo momento y que tu información personal se mantenga privada y segura. Nuestro equipo está constantemente monitoreando y mejorando nuestros sistemas para brindarte la mejor experiencia posible en cada envío.</p>
-                                                                
-                                                                <p>Además, en FlyBox no solo nos preocupamos por ofrecerte un excelente servicio de envío de paquetes, sino que también nos esforzamos por ser una empresa socialmente responsable y comprometida con el medio ambiente. Implementamos prácticas sostenibles en nuestra operación y buscamos constantemente formas de reducir nuestro impacto en el planeta.</p>
-                                                                
-                                                                <p>En resumen, en FlyBox no solo encontrarás una plataforma de paquetería, sino un socio confiable que está aquí para apoyarte en cada paso del camino. Únete a nosotros hoy y descubre por qué miles de personas confían en FlyBox para sus necesidades de envío y logística.</p>  
+                           <!-- Mostrar mensajes de éxito o error -->
+@if (session('success'))
+<div class="alert alert-success">
+    {{ session('success') }}
+</div>
+@endif
 
-                                                                </div><br>
-                                                            </div>
-                                                            <center><div class="col-lg-8"><div>
-                                                                <center><img src="https://images.pexels.com/photos/22756320/pexels-photo-22756320.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="img-flybox"></center>
-                                                            </div></div></center>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </section>
-                                            <section>
-                                                <h2>¿CUAL ES NUESTRA MISIÓN?</h2>
-                                                <div class="card shadow border-0 rounded-4 mb-5">
-                                                    <div class="card-body p-5">
-                                                        <div class="row align-items-center gx-5">
-                                                            <div class="col text-center text-lg-start mb-4 mb-lg-0">
-                                                                <div class="bg-light p-4 rounded-4">
-                                                                    <p>En FlyBox, nuestra principal prioridad es garantizar la seguridad y rapidez en el envío de productos para nuestros clientes y empresas asociadas. Nuestra misión consiste en asegurar que nuestros drones operen de manera funcional y efectiva, de modo que podamos brindar una experiencia satisfactoria a nuestros clientes y terceros.</p>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-lg-8"><div>
-                                                                <center><img src="https://images.pexels.com/photos/22751697/pexels-photo-22751697.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="img-flybox"></center>
-                                                            </div></div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </section>
-                                            <section>
-                                                <h2>¿CUAL ES NUESTRA VISIÓN?</h2>
-                                                <div class="card shadow border-0 rounded-4 mb-5">
-                                                    <div class="card-body p-5">
-                                                        <div class="row align-items-center gx-5">
-                                                            <div class="col text-center text-lg-start mb-4 mb-lg-0">
-                                                                <div class="bg-light p-4 rounded-4">
-                                                                    <p>En nuestra empresa de paquetería, tenemos la visión de liderar el mercado global ofreciendo servicios de la más alta calidad y confiabilidad. Para lograrlo, nos enfocamos en soluciones innovadoras que superen las expectativas de nuestros clientes y que al mismo tiempo, contribuyan de manera positiva al bienestar de la sociedad y al cuidado del medio ambiente. Estamos comprometidos con ofrecer un servicio excepcional y hacer nuestra parte para construir un mundo mejor y más sostenible.</p>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-lg-8"><div>
-                                                                <center><img src="https://media.istockphoto.com/id/1477603847/es/foto/levitando-cajas-de-cart%C3%B3n.jpg?s=612x612&w=0&k=20&c=jT-DR_AgYLtkplXCTYrvYh8YDRLB_VoKrdJ-niwZhyY=" class="img-flybox"></center>
-                                                            </div></div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </section>
-                                            <section>
-                                                <div class="card shadow border-0 rounded-4 mb-5">
-                                                    <div class="card-body p-5">
-                                                        <div class="row align-items-center gx-5">
-                                                            <div class="col text-center text-lg-start mb-4 mb-lg-0">
-                                                                <div class="bg-light p-4 rounded-4">
-                                                                <p>Bienvenido a FlyBox, tu compañero confiable en el mundo de la paquetería y la logística. En un mundo cada vez más conectado, reconocemos la importancia de ofrecer soluciones integrales y eficientes para el envío y rastreo de paquetes. En FlyBox, nos enorgullecemos de ofrecer una plataforma completa que no solo te permite enviar tus paquetes de manera rápida y segura, sino que también te brinda la tranquilidad de poder rastrearlos en tiempo real, desde el momento en que salen de tus manos hasta que llegan a su destino final.</p>
-                                            
-                                                                <p>En FlyBox, la seguridad y la confiabilidad son nuestras principales prioridades. Trabajamos arduamente para garantizar que tus paquetes estén protegidos en todo momento y que tu información personal se mantenga privada y segura. Nuestro equipo está constantemente monitoreando y mejorando nuestros sistemas para brindarte la mejor experiencia posible en cada envío.</p>
-                                                                
-                                                                <p>Además, en FlyBox no solo nos preocupamos por ofrecerte un excelente servicio de envío de paquetes, sino que también nos esforzamos por ser una empresa socialmente responsable y comprometida con el medio ambiente. Implementamos prácticas sostenibles en nuestra operación y buscamos constantemente formas de reducir nuestro impacto en el planeta.</p>
-                                                                
-                                                                <p>En resumen, en FlyBox no solo encontrarás una plataforma de paquetería, sino un socio confiable que está aquí para apoyarte en cada paso del camino. Únete a nosotros hoy y descubre por qué miles de personas confían en FlyBox para sus necesidades de envío y logística.</p>  
+@if ($errors->any())
+<div class="alert alert-danger">
+    <ul>
+        @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+        @endforeach
+    </ul>
+</div>
+@endif
 
-                                                                </div><br>
-                                                            </div>
-                                                            <center><div class="col-lg-8"><div>
-                                                                <center><img src="https://images.pexels.com/photos/22756320/pexels-photo-22756320.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="img-flybox"></center>
-                                                            </div></div></center>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </section>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+<!-- Formulario de edición de perfil -->
+<form action="{{ route('profile.update') }}" method="POST" enctype="multipart/form-data">
+@csrf
+<label for="name">Name:</label>
+<input type="text" name="name" value="{{ old('name', $user->name) }}">
+<label for="email">Email:</label>
+<input type="email" name="email" value="{{ old('email', $user->email) }}">
+<label for="password">Password:</label>
+<input type="password" name="password">
+<label for="password_confirmation">Confirm Password:</label>
+<input type="password" name="password_confirmation">
+<label for="profile_picture">Profile Picture:</label>
+<input type="file" name="profile_picture">
+<button type="submit">Update Profile</button>
+</form>
+
                         </ol>
                     </div>
                 </main>

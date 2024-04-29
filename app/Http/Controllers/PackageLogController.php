@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\PackageLog;
+use App\Models\Paquete;
 
 
 class PackageLogController extends Controller
@@ -39,6 +40,8 @@ class PackageLogController extends Controller
         PackageLog::create([
             'numero_paquete' => $request->input('numero_paquete'),
             'nombre_destinatario' => $request->input('nombre_destinatario'),
+            'direccion_envio' => $request->input('envio'),
+            'direccion_salida' => $request->input('direccion_salida'),
             'direccion_destino' => $request->input('direccion_destino'),
             'ciudad_destino' => $request->input('ciudad_destino'),
             'codigo_postal' => $request->input('codigo_postal'),
@@ -54,9 +57,9 @@ class PackageLogController extends Controller
     
     public function buscarPaquete(Request $request)
     {
-        $codigoPaquete = $request->input('numero_paquete');
-        $paquete = PackageLog::where('numero_paquete', $codigoPaquete)->first();
-        
-        return view('nombre_de_la_vista', compact('paquete'));
+        $numeroPaquete = $request->input('numero_paquete');
+        $paquete = PackageLog::where('numero_paquete', $numeroPaquete)->first();
+
+        return view('paqueteria', compact('paquete'));
     }
 }

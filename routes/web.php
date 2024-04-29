@@ -10,8 +10,6 @@ use App\Http\Controllers\PackageLogController;
 
 
 
-
-
 Route::get('/', function () {
     return view('welcome');
 });
@@ -53,9 +51,9 @@ Route::middleware('auth')->group(function () {
         return view('/vision_mision');
     })->name('vision_mision');
     
-    Route::get('edit', function () {
-        return view('/profile/edit');
-    })->name('edit');
+    Route::get('perfil', function () {
+        return view('perfil');
+    })->name('perfil');
     
     Route::get('npedidos', function () {
         return view('/npedidos');
@@ -71,6 +69,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
     Route::post('/package-logs', [PackageLogController::class, 'store'])->name('package-log.store');
     Route::get('/buscar-paquete', [PackageLogController::class, 'buscarPaquete'])->name('buscar-paquete');
+    Route::post('/profile/update', [PackageLogController::class, 'updateProfile'])->name('profile.update');
     Route::get('/profile/{id}/edit', 'ProfileController@edit');
     Route::put('/profile/{id}', 'ProfileController@update');
 

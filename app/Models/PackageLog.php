@@ -12,6 +12,7 @@ class PackageLog extends Model
     protected $fillable = [
         'nombre_destinatario',
         'numero_paquete',
+        'direccion_salida',
         'direccion_destino',
         'ciudad_destino',
         'codigo_postal',

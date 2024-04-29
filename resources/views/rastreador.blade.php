@@ -118,6 +118,11 @@
     }
 }
 
+#map {
+            height: 400px;
+            width: 100%;
+        }
+
 .nav-link.active {
     background-color: #0b5ed7; /* Cambia "yourColor" por el color que desees */
     color: #0040ad; /* Cambia "#fff" por el color del texto que desees */
@@ -23187,7 +23192,25 @@ body {
 
             <div id="layoutSidenav_content">
                 <main>
-
+                    <center><h1>MAPA DEL PAQUETE</h1></center>
+                    <div id="map"></div>
+                    <script>
+                        function initMap() {
+                            var myLatLng = {lat: -25.363, lng: 131.044};
+                
+                            var map = new google.maps.Map(document.getElementById('map'), {
+                                zoom: 4,
+                                center: myLatLng
+                            });
+                
+                            var marker = new google.maps.Marker({
+                                position: myLatLng,
+                                map: map,
+                                title: '¡Hola Mundo!'
+                            });
+                        }
+                    </script>
+                    <script src="https://maps.googleapis.com/maps/api/js?key=TU_API_KEY&callback=initMap" async defer></script>
                 </main>
             </div>
             

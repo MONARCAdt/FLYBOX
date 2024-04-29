@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('numero_paquete');
             $table->string('nombre_destinatario');
+            $table->string('direccion_salida');
             $table->string('direccion_destino');
             $table->string('ciudad_destino');
             $table->string('codigo_postal');

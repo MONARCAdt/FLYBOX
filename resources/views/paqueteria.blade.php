@@ -117,7 +117,34 @@
             scroll-behavior: smooth;
         }
     }
-    
+
+    .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .search-form {
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 80%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+
     .nav-link.active {
         background-color: #0b5ed7; /* Cambia "yourColor" por el color que desees */
         color: #0040ad; /* Cambia "#fff" por el color del texto que desees */
@@ -23197,30 +23224,60 @@
                                                 </div>
                                             </div>
                                             <div class="col-lg-8"><div>
-                                                <form action="{{ route('buscar-paquete') }}" method="GET" class="form-search d-flex align-items-stretch mb-3" data-aos="fade-up" data-aos-delay="200">
-                                                    <input type="text" name="numero_paquete" class="form-control" placeholder="Ingrese el número del paquete">
-                                                    <button type="submit" class="btn btn-primary">Buscar</button>
-                                                </form>
-                                                <h1>Detalles del Paquete</h1>
-                                                @if($paquete)
-                                                    <p>Número del Paquete: {{ $paquete->numero_paquete }}</p>
-                                                    <p>Nombre del Destinatario: {{ $paquete->nombre_destinatario }}</p>
-                                                    <p>Dirección de Destino: {{ $paquete->direccion_destino }}</p>
-                                                    <p>Ciudad de Destino: {{ $paquete->ciudad_destino }}</p>
-                                                    <p>Código Postal: {{ $paquete->codigo_postal }}</p>
-                                                    <p>Contenido del Paquete: {{ $paquete->contenido_paquete }}</p>
-                                                    <p>Peso: {{ $paquete->peso }}</p>
-                                                    <p>Fecha de Envío: {{ $paquete->fecha_envio }}</p>
-                                                    <p>Tarifa: {{ $paquete->tarifa }}</p>
-                                                    <p>Precio: {{ $paquete->precio }}</p>
-                                                @else
-                                                    <p>El paquete no se encontró.</p>
-                                                @endif                                                
+                                                <div class="container">
+                                                    <form action="{{ route('buscar-paquete') }}" method="GET" class="search-form" data-aos="fade-up" data-aos-delay="200">
+                                                        <input type="text" name="numero_paquete" placeholder="Ingrese el número del paquete">
+                                                        <center><button type="submit" class="btn btn-primary">Buscar</button></center><br><br>
+                                                    </form>
+                                                
+                                                    @if(isset($paquete))
+                                                        <table>
+                                                            <tr>
+                                                                <th>Detalles del Paquete</th>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Número del Paquete: {{ $paquete->numero_paquete }}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Nombre del Destinatario: {{ $paquete->nombre_destinatario }}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Dirección de Salida: {{ $paquete->direccion_salida }}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Dirección de Destino: {{ $paquete->direccion_destino }}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Ciudad de Destino: {{ $paquete->ciudad_destino }}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Código Postal: {{ $paquete->codigo_postal }}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Contenido del Paquete: {{ $paquete->contenido_paquete }}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Peso: {{ $paquete->peso }}kg</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Fecha de Envío: {{ $paquete->fecha_envio }}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Tarifa: {{ $paquete->tarifa }}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Precio: {{ $paquete->precio }}</td>
+                                                            </tr>
+                                                        </table>
+                                                    @else
+                                                        <p>El paquete no se encontró.</p>
+                                                    @endif  
+                                                </div>
                                             </div></div>
                                         </div>
                                     </div>
                                 </div>
-                            </section>                           
+                            </section>                                                  
                 </main>
             </div>
             
