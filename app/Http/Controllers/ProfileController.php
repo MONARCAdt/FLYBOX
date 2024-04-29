@@ -36,7 +36,7 @@ class ProfileController extends Controller
             $file->storeAs('profile_pictures', $fileName);
             $user->profile_picture = $fileName;
         }
-        $user->save();
+        $user->save;
 
         return redirect()->route('profile.edit')->with('success', 'Profile updated successfully!');
     }

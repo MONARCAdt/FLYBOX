@@ -23063,7 +23063,7 @@ body {
                         <div class="nav">
                             <div class="sb-sidenav-menu-heading">PAQUETERIA</div>
                             <a class="nav-link" href="{{route('dashboard')}}">
-                                <div class="background-color"></div>
+                                <div class="sb-nav-link-icon"></div>
                                 Inicio
                             </a>
                             <a class="nav-link" href="{{route('tarifaenvio')}}">
@@ -23120,7 +23120,7 @@ body {
 <input type="password" name="password_confirmation">
 <label for="profile_picture">Profile Picture:</label>
 <input type="file" name="profile_picture">
-<button type="submit">Update Profile</button>
+<button type="submit">GUARDAR</button>
 </form>
 
                         </ol>
