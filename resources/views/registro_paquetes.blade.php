@@ -23258,7 +23258,29 @@ body {
     font-size: 0.75rem;
     border-radius: 0.375rem !important;
 }
-3</style>
+
+    /* Estilos para el formulario */
+    .form-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .form-column {
+        flex: 0 0 48%; /* Ancho de cada columna */
+        margin-bottom: 20px; /* Espacio entre columnas */
+    }
+
+    .form-column:last-child {
+        flex: 0 0 100%; /* Ancho completo para la última columna */
+    }
+
+    /* Estilos para el botón */
+    button[type="submit"] {
+        display: block;
+        margin: 0 auto; /* Centrar el botón */
+    }
+</style>
 </head>
 
 
@@ -23325,65 +23347,67 @@ body {
                                 <p>Así que te invito a aprovechar esta nueva herramienta que tenemos a disposición. Registra tus paquetes aquí y experimenta la tranquilidad de saber que tus envíos están en buenas manos. Juntos, podemos hacer de nuestra comunidad un lugar aún mejor para vivir y prosperar.</p>
                             </div>
                             <div class="right-content">
-                                <center><h1>Crear Nuevo Paquete</h1><br>
-                                    <form method="post" action="{{ route('package-log.store') }}">
-                                        @csrf
-                                        <div>
-                                            <label for="nombre_destinatario">Nombre del destinatario:</label>
-                                            <input type="text" id="nombre_destinatario" name="nombre_destinatario" required>
-                                        </div>
+            <!-- Encabezado del formulario -->
+            @if(session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+                @if(session('numero_paquete'))
+                    <center><p>Número de paquete: {{ session('numero_paquete') }}</p></center>
+                @endif
+            </div>
+            @endif
+            <center><h1>CREAR ENVÍO</h1><br></center>
+            <!-- Formulario -->
+            <form method="post" action="{{ route('package-log.store') }}" class="form-container">
+                @csrf
+                <!-- Primera columna -->
+                <div class="form-column">
+                    <label for="nombre_destinatario">Nombre del destinatario:</label>
+                    <input type="text" id="nombre_destinatario" name="nombre_destinatario" required>
 
-                                        <div>
-                                            <label for="numero_paquete">Codigo del paquete:</label>
-                                            <input type="number" id="numero_paquete" name="numero_paquete" required>
-                                        </div>
+                    <div class="select-container">
+                        <label for="tarifa" class="select-label">Tarifa:</label>
+                        <select name="tarifa" id="tarifa" class="custom-select">
+                            <option value="Envió Estándar">Envió Estándar - $15,000</option>
+                            <option value="Envió Express">Envió Express - $20,000</option>
+                            <option value="Envió Nacional">Envió Nacional - $23,000</option>
+                        </select>
+                    </div>
 
-                                        <div class="select-container">
-                                            <label for="tarifa" class="select-label">Tarifa:</label>
-                                            <select name="tarifa" id="tarifa" class="custom-select">
-                                                <option value="Envió Estándar">Envió Estándar - $15,000</option>
-                                                <option value="Envió Express">Envió Express - $20,000</option>
-                                                <option value="Envió Nacional">Envió Nacional - $23,000</option>
-                                            </select>
-                                        </div>
-                                        
+                    <label for="direccion_salida">Dirección de salida:</label>
+                    <input type="text" id="direccion_salidaa" name="direccion_salida" required>
 
-                                        <div>
-                                            <label for="direccion_destino">Dirección de salida:</label>
-                                            <input type="text" id="direccion_salidaa" name="direccion_salida" required>
-                                        </div>
+                    <label for="direccion_destino">Dirección de destino:</label>
+                    <input type="text" id="direccion_destino" name="direccion_destino" required>
 
-                                        <div>
-                                            <label for="direccion_destino">Dirección de destino:</label>
-                                            <input type="text" id="direccion_destino" name="direccion_destino" required>
-                                        </div>
-                                    
-                                        <div>
-                                            <label for="ciudad_destino">Ciudad de destino:</label>
-                                            <input type="text" id="ciudad_destino" name="ciudad_destino" required>
-                                        </div>
-                                    
-                                        <div>
-                                            <label for="codigo_postal">Código Postal:</label>
-                                            <input type="text" id="codigo_postal" name="codigo_postal" required>
-                                        </div>
-                                    
-                                        <div>
-                                            <label for="contenido_paquete">Contenido del paquete:</label>
-                                            <textarea id="contenido_paquete" name="contenido_paquete" required></textarea>
-                                        </div>
-                                    
-                                        <div>
-                                            <label for="peso">Peso del paquete:</label>
-                                            <input type="number" id="peso" name="peso" required>
-                                        </div>
-                                    
-                                        <div>
-                                            <label for="fecha_envio">Fecha de envío:</label>
-                                            <input type="date" id="fecha_envio" name="fecha_envio" required>
-                                        </div>                                    
-                                        <button type="submit">Enviar paquete</button>
-                                    </form>
+                    <label for="peso">Peso del paquete (Kg):</label>
+                    <input type="number" id="peso" name="peso" required>
+
+                </div>
+                <!-- Segunda columna -->
+                <div class="form-column">
+                    <label for="ciudad_destino">Ciudad de destino:</label>
+                    <input type="text" id="ciudad_destino" name="ciudad_destino" required>
+
+                    <label for="codigo_postal">Código Postal:</label>
+                    <input type="text" id="codigo_postal" name="codigo_postal" required>
+
+                    <label for="ancho">Ancho (Cm):</label>
+                    <input type="number" id="ancho" name="ancho" required>
+
+                    <label for="largo">Largo(Cm):</label>
+                    <input type="number" id="largo" name="largo" required>
+
+                    <label for="contenido_paquete">Contenido del paquete:</label>
+                    <textarea id="contenido_paquete" name="contenido_paquete" required></textarea>
+
+                    <label for="fecha_envio">Fecha de envío:</label>
+                    <input type="date" id="fecha_envio" name="fecha_envio" required>
+                </div>
+                <!-- Botón -->
+                <button type="submit">Enviar paquete</button><br>
+            </form>
+
                             </div></center> 
                         </div>
                     </div>

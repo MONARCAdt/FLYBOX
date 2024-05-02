@@ -968,7 +968,7 @@ button:hover {
 
     <footer class="footer">
         <section class="footer__copy container">
-            <h3 class="footer__copyright">Derechos reservados &copy; FlyBox</h3>
+            <h3 class="footer__copyright">Derechos reservados &copy; Monarca</h3>
         </section>
     </footer>
 

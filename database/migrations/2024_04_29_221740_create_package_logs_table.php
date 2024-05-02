@@ -20,6 +20,8 @@ return new class extends Migration
             $table->string('ciudad_destino');
             $table->string('codigo_postal');
             $table->string('contenido_paquete');
+            $table->string('ancho');
+            $table->string('largo');
             $table->string('peso');
             $table->string('fecha_envio');
             $table->string('tarifa');

@@ -23244,7 +23244,7 @@ body {
                                      </div>
                                     
                                     <div class="precio-col-features">
-                                        <p>Envio de 1 a 2 Horas</p>
+                                        <p>Envio de 1 a 2 Dias</p>
                                         <p>Rastreo avanzado</p>
                                         <p>Seguro de envío</p>
                                         <p></p>

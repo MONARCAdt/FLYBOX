@@ -375,6 +375,7 @@ $mensaje = $mensaje ?? '';
                                                     <i class="input-icon uil uil-lock-alt"></i>
                                                 </div>
                                                 <button class="btn mt-4"">Crear cuenta</button>
+                                                <p class="mb-0 mt-4 text-center"><a href="{{route('login')}}" class="link">¿Ya tienes cuenta?</a></p>
                                             </form>
                                         </div>
                                     </div>

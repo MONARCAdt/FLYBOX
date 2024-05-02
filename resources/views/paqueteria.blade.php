@@ -23266,6 +23266,12 @@
                                                                 <td>Contenido del Paquete: {{ $paquete->contenido_paquete }}</td>
                                                             </tr>
                                                             <tr>
+                                                                <td>Ancho: {{ $paquete->ancho }}Cm</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Largo: {{ $paquete->largo }}Cm</td>
+                                                            </tr>
+                                                            <tr>
                                                                 <td>Peso: {{ $paquete->peso }}kg</td>
                                                             </tr>
                                                             <tr>
@@ -23277,10 +23283,12 @@
                                                             <tr>
                                                                 <td>Precio: {{ $paquete->precio }}</td>
                                                             </tr>
+                                                            <tr>
+                                                            </tr>
                                                         </table>
                                                     @else
                                                         <p>El paquete no se encontró.</p>
-                                                    @endif  
+                                                    @endif 
                                                 </div>
                                             </div></div>
                                         </div>

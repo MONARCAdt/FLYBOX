@@ -23191,12 +23191,6 @@ body {
                                             <input type="password" id="password_confirmation" name="password_confirmation" required>
                                         </div>
                                 
-                                        <!-- Campo de imagen de perfil -->
-                                        <div class="form-group">
-                                            <label for="profile_picture">Imagen de perfil:</label>
-                                            <input type="file" id="profile_picture" name="profile_picture">
-                                        </div>
-                                
                                         <!-- Botón para enviar el formulario -->
                                         <div>
                                             <button type="submit" class="btn-submit">Guardar cambios</button>

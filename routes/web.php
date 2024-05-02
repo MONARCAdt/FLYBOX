@@ -64,16 +64,24 @@ Route::middleware('auth')->group(function () {
         return view('/tarifaenvio');
     })->name('tarifaenvio');
 
+    Route::get('inicio', function () {
+        return view('/inicio');
+    })->name('inicio');
+
+    Route::get('descargar-pdf', function () {
+        return view('/descargar-pdf');
+    })->name('descargar-pdf');
+
     Route::get('/paquete/{numero_guia}', 'PaqueteController@mostrar');
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::get('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
     Route::post('/package-logs', [PackageLogController::class, 'store'])->name('package-log.store');
     Route::get('/buscar-paquete', [PackageLogController::class, 'buscarPaquete'])->name('buscar-paquete');
-    Route::get('/buscar-paquete/pdf', [PackageLogController::class, 'pdf'])->name('buscar-paquete.pdf');
     Route::post('/profile/update', [PackageLogController::class, 'updateProfile'])->name('profile.update');
     Route::get('/perfil/editar', [PerfilController::class, 'edit'])->name('perfil.edit');
     Route::put('/perfil', [PerfilController::class, 'update'])->name('perfil.update');
+    Route::get('download-pdf', [PackageLogController::class, 'generar_pdf'])->name('pdf_envio');
 });
 
 require __DIR__.'/auth.php';

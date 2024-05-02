@@ -17,6 +17,8 @@ class PackageLog extends Model
         'ciudad_destino',
         'codigo_postal',
         'contenido_paquete',
+        'ancho',
+        'largo',
         'peso',
         'tarifa',
         'precio',

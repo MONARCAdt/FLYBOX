@@ -140,18 +140,14 @@ button:active{
 }
 h1{
     color: rgb(255, 255, 255);
-    background: rgb(0, 45, 113);    
+    background: rgb(3, 2, 45);    
     padding: 50px;
     text-align: center;
     font-size: 50px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     
 }
-/* h1:hover{
-    color:moccasin;
-    background: midnightblue;
-
-} */
+ 
 nav{
     background: rgb(0, 0, 0);
     padding: 10px;
@@ -22976,8 +22972,8 @@ body {
 
 .datatable-sorter::before,
 .datatable-sorter::after {
-    content: '';
     height: 0;
+    content: '';
     width: 0;
     position: absolute;
     right: 4px;
@@ -23013,19 +23009,12 @@ body {
 .datatable-pagination li.datatable-hidden {
     visibility: visible;
 }
-
-.btn-datatable {
-    height: 20px !important;
-    width: 20px !important;
-    font-size: 0.75rem;
-    border-radius: 0.375rem !important;
-}
-3</style>
+</style>
 </head>
 
 <body class="sb-nav-fixed">
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-        <a class="navbar-brand ps-3" href="index.html">FLYBOX</a>
+        <a class="navbar-brand ps-3" href="{{route('dashboard')}}">FLYBOX</a>
         <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
 
         </form>
@@ -23039,7 +23028,7 @@ body {
                 <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown"
                  aria-expanded="false">{{ Auth::user()->name }}</a>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="{{ route('perfil.edit') }}">Editar perfil</a></li>
+                <li><button class="btn btn-black" href="{{route('perfil.edit')}}" type="submit">Editar perfil</button></li>
                 <li>
                     <hr class="dropdown-divider" />
                 </li>
@@ -23082,11 +23071,7 @@ body {
 
             <div id="layoutSidenav_content">
                 <main>
-                    <div class="container-fluid px-4">
-                        <h1 class="mt-4 text-center">Bienvenido a FlyBox, {{ Auth::user()->name }}</h1><br>
-                        <div class="dropdown text-center">
-                            <h2 id="navbarDropdown" data-bs-toggle="dropdown"></h2>
-                        </div>
+                        <h1 class="">Bienvenido a FlyBox, {{ Auth::user()->name }}</h1><br>
                         <ol class="breadcrumb mb-4">
                             <div class="container-fluid container-xl d-flex align-items-center justify-content-center">
                                 <!-- Hero Section -->
@@ -23183,7 +23168,6 @@ body {
                                 </div>
                             </div>
                         </ol>
-                    </div>
                 </main>
             </div>
         
