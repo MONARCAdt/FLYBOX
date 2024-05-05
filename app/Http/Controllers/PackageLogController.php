@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\PackageLog;
 use App\Models\Paquete;
 use Barryvdh\DomPDF\Facade as PDF;
+use Illuminate\Support\Facades\Auth;
 
 
 class PackageLogController extends Controller
@@ -41,10 +42,13 @@ class PackageLogController extends Controller
                  // Manejar el caso por defecto si es necesario
                  break;
          }
+
+         $userName = Auth::user()->name;
      
          // Guardar el registro en la base de datos
          PackageLog::create([
              'numero_paquete' => $numero_paquete,
+             'username' =>  $userName,
              'nombre_destinatario' => $request->input('nombre_destinatario'),
              'direccion_envio' => $request->input('envio'),
              'direccion_salida' => $request->input('direccion_salida'),
@@ -71,11 +75,4 @@ class PackageLogController extends Controller
 
             return view('paqueteria', compact('paquete'));
         }
-
-        public function generar_pdf(){
-            $paquete = Paquete::all();
-            $pdf = PDF::loadView('Administrador.PackageLog.pdf_envio', compact('paquete'));
-            return $pdf->download('pdf_envio');
-        }
-
     }

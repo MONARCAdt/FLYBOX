@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('package_logs', function (Blueprint $table) {
             $table->id();
+            $table->string('username')->nullable();
             $table->string('numero_paquete');
             $table->string('nombre_destinatario');
             $table->string('direccion_salida');

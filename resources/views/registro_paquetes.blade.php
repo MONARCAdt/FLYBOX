@@ -486,20 +486,6 @@
     background-color: #0056b3;
 }
 
-
-body {
-    margin: 0;
-    font-family: var(--bs-body-font-family);
-    font-size: var(--bs-body-font-size);
-    font-weight: var(--bs-body-font-weight);
-    line-height: var(--bs-body-line-height);
-    color: var(--bs-body-color);
-    text-align: var(--bs-body-text-align);
-    background-color: var(--bs-body-bg);
-    -webkit-text-size-adjust: 100%;
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-}
-
 hr {
     margin: 1rem 0;
     color: inherit;
@@ -22854,10 +22840,6 @@ fieldset:disabled .btn {
         display: none !important;
     }
 }
-html,
-body {
-    height: 100%;
-}
 
 #layoutAuthentication {
     display: flex;
@@ -23280,19 +23262,165 @@ body {
         display: block;
         margin: 0 auto; /* Centrar el botón */
     }
+
+    body {
+  margin: 0;
+  font-family: Helvetica, sans-serif;
+  background-color: #1481BA;
+}
+
+a {
+  color: #000;
+}
+
+/* header */
+
+.header {
+  background-color: #fff;
+  box-shadow: 1px 1px 4px 0 rgba(0,0,0,.1);
+  position: fixed;
+  width: 100%;
+  z-index: 3;
+}
+
+.header ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  overflow: hidden;
+  background-color: #fff;
+}
+
+.header li a {
+  display: block;
+  padding: 20px 20px;
+  border-right: 1px solid #f4f4f4;
+  text-decoration: none;
+}
+
+.header li a:hover,
+.header .menu-btn:hover {
+  background-color: #f4f4f4;
+}
+
+.header .logo {
+  display: block;
+  float: left;
+  font-size: 2em;
+  padding: 10px 20px;
+  text-decoration: none;
+}
+
+/* menu */
+
+.header .menu {
+  clear: both;
+  max-height: 0;
+  transition: max-height .2s ease-out;
+}
+
+/* menu icon */
+
+.header .menu-icon {
+  cursor: pointer;
+  display: inline-block;
+  float: right;
+  padding: 28px 20px;
+  position: relative;
+  user-select: none;
+}
+
+.header .menu-icon .navicon {
+  background: #333;
+  display: block;
+  height: 2px;
+  position: relative;
+  transition: background .2s ease-out;
+  width: 18px;
+}
+
+.header .menu-icon .navicon:before,
+.header .menu-icon .navicon:after {
+  background: #333;
+  content: '';
+  display: block;
+  height: 100%;
+  position: absolute;
+  transition: all .2s ease-out;
+  width: 100%;
+}
+
+.header .menu-icon .navicon:before {
+  top: 5px;
+}
+
+.header .menu-icon .navicon:after {
+  top: -5px;
+}
+
+/* menu btn */
+
+.header .menu-btn {
+  display: none;
+}
+
+.header .menu-btn:checked ~ .menu {
+  max-height: 240px;
+}
+
+.header .menu-btn:checked ~ .menu-icon .navicon {
+  background: transparent;
+}
+
+.header .menu-btn:checked ~ .menu-icon .navicon:before {
+  transform: rotate(-45deg);
+}
+
+.header .menu-btn:checked ~ .menu-icon .navicon:after {
+  transform: rotate(45deg);
+}
+
+.header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:before,
+.header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:after {
+  top: 0;
+}
+
+/* 48em = 768px */
+
+@media (min-width: 48em) {
+  .header li {
+    float: left;
+  }
+  .header li a {
+    padding: 20px 30px;
+  }
+  .header .menu {
+    clear: none;
+    float: right;
+    max-height: none;
+  }
+  .header .menu-icon {
+    display: none;
+  }
+}
+
 </style>
 </head>
 
 
 <body class="sb-nav-fixed">
-    <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-        <a class="navbar-brand ps-3" href="index.html">FLYBOX</a>
-        <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+    <header class="header">
+        <a href="{{route('rastreador')}}" class="logo">FLYBOX</a>
+        <input class="menu-btn" type="checkbox" id="menu-btn" />
+        <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+        <ul class="menu">
+          <li><a href="{{ROUTE('dashboard')}}">INICIO</a></li>
+          <li><a href="{{ROUTE('tarifaenvio')}}">CREAR ENVÍO</a></li>
+          <li><a href="{{ROUTE('paqueteria')}}">PAQUETERIA</a></li>
+          <li><a href="{{ROUTE('rastreador')}}">RASTREADOR</a></li>
 
-        </form>
-        <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown"
+                <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
                  aria-expanded="false">{{ Auth::user()->name }}</a>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                 <li><a class="dropdown-item" href="{{ route('perfil.edit') }}">Editar perfil</a></li>
@@ -23306,109 +23434,77 @@ body {
                     </form>                           
                 </li>
             </ul>
-        </li>
-    </ul>
-    </nav>
-        <div id="layoutSidenav">
-            <div id="layoutSidenav_nav">
-                <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
-                    <div class="sb-sidenav-menu">
-                        <div class="nav">
-                            <div class="sb-sidenav-menu-heading">PAQUETERIA</div>
-                            <a class="nav-link" href="{{route('dashboard')}}">
-                                <div class="sb-nav-link-icon"></div>
-                                Inicio
-                            </a>
-                            <a class="nav-link" href="{{route('tarifaenvio')}}">
-                                <div class="background-color"></div>
-                                Crear envio
-                            </a>
-                            <a class="nav-link" href="{{route('paqueteria')}}">
-                                <div class="sb-nav-link-icon"></div>
-                                Paqueteria
-                            </a>
-                            <a class="nav-link" href="{{route('rastreador')}}">
-                                <div class="sb-nav-link-icon"></div>
-                                Rastreador
-                            </a>
-                        </div>
-                    </div>
-            </div>
+        </ul>
+      </header><br><br>
 
             <div id="layoutSidenav_content">
                 <main>
-                    <div class="container">
-                        <div class="content-wrapper">
-                            <div class="left-content">
-                                <h1 class="mt-4">REGISTRO DE PAQUETES</h1>
-                                <p>En esta zona, hemos implementado un sistema de registro de paquetes que tiene como objetivo principal agilizar y asegurar la entrega de todos los paquetes que recibimos. Sabemos que en ocasiones puede ser un desafío garantizar que todos los paquetes lleguen a sus destinatarios de manera oportuna y segura, y es por eso que hemos decidido dar un paso adelante en la gestión de este proceso.</p>
-                                <p>¿Qué significa esto para ti, nuestro valioso miembro de la comunidad? Significa que ahora puedes tener la tranquilidad de que tus paquetes serán registrados de manera eficiente en el momento en que lleguen a nuestras instalaciones. Ya no tendrás que preocuparte por la incertidumbre de si tu paquete ha sido recibido o no. Con nuestro sistema de registro de paquetes, podrás estar informado en todo momento sobre el estado y la ubicación de tus envíos.</p>
-                                <p>Además, al registrar tus paquetes en nuestra zona, estás contribuyendo a una comunidad más organizada y segura para todos. El registro de paquetes nos permite mantener un control adecuado sobre los artículos que ingresan y salen de nuestra área, lo que a su vez nos ayuda a garantizar la seguridad y el bienestar de todos los residentes.</p>
-                                <p>Así que te invito a aprovechar esta nueva herramienta que tenemos a disposición. Registra tus paquetes aquí y experimenta la tranquilidad de saber que tus envíos están en buenas manos. Juntos, podemos hacer de nuestra comunidad un lugar aún mejor para vivir y prosperar.</p>
+                            <div class="card-body p-5">
+                                <div class="row align-items-center gx-5">
+                                    <div class="right-content">
+                                        <!-- Encabezado del formulario -->
+                                        @if(session('success'))
+                                        <div class="alert alert-success">
+                                            {{ session('success') }}
+                                            @if(session('numero_paquete'))
+                                                <center><p>Número de paquete: {{ session('numero_paquete') }}</p></center>
+                                            @endif
+                                        </div>
+                                        @endif
+                                        <center><h1>CREAR ENVÍO</h1><br></center>
+                                        <!-- Formulario -->
+                                        <form method="post" action="{{ route('package-log.store') }}" class="form-container">
+                                            @csrf
+                                            <!-- Primera columna -->
+                                            <div class="form-column">
+                                                <label for="nombre_destinatario">Nombre del destinatario:</label>
+                                                <input type="text" id="nombre_destinatario" name="nombre_destinatario" required>
+                            
+                                                <div class="select-container">
+                                                    <label for="tarifa" class="select-label">Tarifa:</label>
+                                                    <select name="tarifa" id="tarifa" class="custom-select">
+                                                        <option value="Envió Estándar">Envió Estándar - $15,000</option>
+                                                        <option value="Envió Express">Envió Express - $20,000</option>
+                                                        <option value="Envió Nacional">Envió Nacional - $23,000</option>
+                                                    </select>
+                                                </div>
+                            
+                                                <label for="direccion_salida">Dirección de salida:</label>
+                                                <input type="text" id="direccion_salidaa" name="direccion_salida" required>
+                            
+                                                <label for="direccion_destino">Dirección de destino:</label>
+                                                <input type="text" id="direccion_destino" name="direccion_destino" required> 
+                            
+                                                <label for="peso">Peso del paquete (Kg):</label>
+                                                <input type="number" id="peso" name="peso" required>
+                            
+                                            </div>
+                                            <!-- Segunda columna -->
+                                            <div class="form-column">
+                                                <label for="ciudad_destino">Ciudad de destino:</label>
+                                                <input type="text" id="ciudad_destino" name="ciudad_destino" required>
+                            
+                                                <label for="codigo_postal">Código Postal:</label>
+                                                <input type="text" id="codigo_postal" name="codigo_postal" required>
+                            
+                                                <label for="ancho">Ancho (Cm):</label>
+                                                <input type="number" id="ancho" name="ancho" required>
+                            
+                                                <label for="largo">Largo(Cm):</label>
+                                                <input type="number" id="largo" name="largo" required>
+                            
+                                                <label for="contenido_paquete">Contenido del paquete:</label>
+                                                <textarea id="contenido_paquete" name="contenido_paquete" required></textarea>
+                            
+                                                <label for="fecha_envio">Fecha de envío:</label>
+                                                <input type="date" id="fecha_envio" name="fecha_envio" required>
+                                            </div>
+                                            <!-- Botón -->
+                                            <button type="submit">Enviar paquete</button><br>
+                                        </form>
+                                </div>
                             </div>
-                            <div class="right-content">
-            <!-- Encabezado del formulario -->
-            @if(session('success'))
-            <div class="alert alert-success">
-                {{ session('success') }}
-                @if(session('numero_paquete'))
-                    <center><p>Número de paquete: {{ session('numero_paquete') }}</p></center>
-                @endif
-            </div>
-            @endif
-            <center><h1>CREAR ENVÍO</h1><br></center>
-            <!-- Formulario -->
-            <form method="post" action="{{ route('package-log.store') }}" class="form-container">
-                @csrf
-                <!-- Primera columna -->
-                <div class="form-column">
-                    <label for="nombre_destinatario">Nombre del destinatario:</label>
-                    <input type="text" id="nombre_destinatario" name="nombre_destinatario" required>
-
-                    <div class="select-container">
-                        <label for="tarifa" class="select-label">Tarifa:</label>
-                        <select name="tarifa" id="tarifa" class="custom-select">
-                            <option value="Envió Estándar">Envió Estándar - $15,000</option>
-                            <option value="Envió Express">Envió Express - $20,000</option>
-                            <option value="Envió Nacional">Envió Nacional - $23,000</option>
-                        </select>
-                    </div>
-
-                    <label for="direccion_salida">Dirección de salida:</label>
-                    <input type="text" id="direccion_salidaa" name="direccion_salida" required>
-
-                    <label for="direccion_destino">Dirección de destino:</label>
-                    <input type="text" id="direccion_destino" name="direccion_destino" required>
-
-                    <label for="peso">Peso del paquete (Kg):</label>
-                    <input type="number" id="peso" name="peso" required>
-
-                </div>
-                <!-- Segunda columna -->
-                <div class="form-column">
-                    <label for="ciudad_destino">Ciudad de destino:</label>
-                    <input type="text" id="ciudad_destino" name="ciudad_destino" required>
-
-                    <label for="codigo_postal">Código Postal:</label>
-                    <input type="text" id="codigo_postal" name="codigo_postal" required>
-
-                    <label for="ancho">Ancho (Cm):</label>
-                    <input type="number" id="ancho" name="ancho" required>
-
-                    <label for="largo">Largo(Cm):</label>
-                    <input type="number" id="largo" name="largo" required>
-
-                    <label for="contenido_paquete">Contenido del paquete:</label>
-                    <textarea id="contenido_paquete" name="contenido_paquete" required></textarea>
-
-                    <label for="fecha_envio">Fecha de envío:</label>
-                    <input type="date" id="fecha_envio" name="fecha_envio" required>
-                </div>
-                <!-- Botón -->
-                <button type="submit">Enviar paquete</button><br>
-            </form>
-
-                            </div></center> 
+                        </div>
                         </div>
                     </div>
                 </main>

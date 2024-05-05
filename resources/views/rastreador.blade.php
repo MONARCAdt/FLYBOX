@@ -23134,6 +23134,7 @@ body {
     font-size: 0.75rem;
     border-radius: 0.375rem !important;
 }
+
 </style>
 <script>
     /**
@@ -23198,18 +23199,165 @@ body {
       height: 100%;
       margin: 0;
     }
+
+    body {
+  margin: 0;
+  font-family: Helvetica, sans-serif;
+  background-color: #f4f4f4;
+}
+
+a {
+  color: #000;
+}
+
+/* header */
+
+.header {
+  background-color: #fff;
+  box-shadow: 1px 1px 4px 0 rgba(0,0,0,.1);
+  position: fixed;
+  width: 100%;
+  z-index: 3;
+}
+
+.header ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  overflow: hidden;
+  background-color: #fff;
+}
+
+.header li a {
+  display: block;
+  padding: 20px 20px;
+  border-right: 1px solid #f4f4f4;
+  text-decoration: none;
+}
+
+.header li a:hover,
+.header .menu-btn:hover {
+  background-color: #f4f4f4;
+}
+
+.header .logo {
+  display: block;
+  float: left;
+  font-size: 2em;
+  padding: 10px 20px;
+  text-decoration: none;
+}
+
+/* menu */
+
+.header .menu {
+  clear: both;
+  max-height: 0;
+  transition: max-height .2s ease-out;
+}
+
+/* menu icon */
+
+.header .menu-icon {
+  cursor: pointer;
+  display: inline-block;
+  float: right;
+  padding: 28px 20px;
+  position: relative;
+  user-select: none;
+}
+
+.header .menu-icon .navicon {
+  background: #333;
+  display: block;
+  height: 2px;
+  position: relative;
+  transition: background .2s ease-out;
+  width: 18px;
+}
+
+.header .menu-icon .navicon:before,
+.header .menu-icon .navicon:after {
+  background: #333;
+  content: '';
+  display: block;
+  height: 100%;
+  position: absolute;
+  transition: all .2s ease-out;
+  width: 100%;
+}
+
+.header .menu-icon .navicon:before {
+  top: 5px;
+}
+
+.header .menu-icon .navicon:after {
+  top: -5px;
+}
+
+/* menu btn */
+
+.header .menu-btn {
+  display: none;
+}
+
+.header .menu-btn:checked ~ .menu {
+  max-height: 240px;
+}
+
+.header .menu-btn:checked ~ .menu-icon .navicon {
+  background: transparent;
+}
+
+.header .menu-btn:checked ~ .menu-icon .navicon:before {
+  transform: rotate(-45deg);
+}
+
+.header .menu-btn:checked ~ .menu-icon .navicon:after {
+  transform: rotate(45deg);
+}
+
+.header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:before,
+.header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:after {
+  top: 0;
+}
+
+/* 48em = 768px */
+
+@media (min-width: 48em) {
+  .header li {
+    float: left;
+  }
+  .header li a {
+    padding: 20px 30px;
+  }
+  .header .menu {
+    clear: none;
+    float: right;
+    max-height: none;
+  }
+  .header .menu-icon {
+    display: none;
+  }
+}
+
   </style>
 </head>
 
 <body class="sb-nav-fixed">
-    <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-        <a class="navbar-brand ps-3" href="index.html">FLYBOX</a>
-        <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
 
-        </form>
-        <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+    <header class="header">
+        <a href="{{route('rastreador')}}" class="logo">FLYBOX</a>
+        <input class="menu-btn" type="checkbox" id="menu-btn" />
+        <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+        <ul class="menu">
+          <li><a href="{{ROUTE('dashboard')}}">INICIO</a></li>
+          <li><a href="{{ROUTE('tarifaenvio')}}">CREAR ENVÍO</a></li>
+          <li><a href="{{ROUTE('paqueteria')}}">PAQUETERIA</a></li>
+          <li><a href="{{ROUTE('rastreador')}}">RASTREADOR</a></li>
+
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown"
+                <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
                  aria-expanded="false">{{ Auth::user()->name }}</a>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                 <li><a class="dropdown-item" href="{{ route('perfil.edit') }}">Editar perfil</a></li>
@@ -23223,62 +23371,37 @@ body {
                     </form>                           
                 </li>
             </ul>
-        </li>
-    </ul>
-    </nav>
-        <div id="layoutSidenav">
-            <div id="layoutSidenav_nav">
-                <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
-                    <div class="sb-sidenav-menu">
-                        <div class="nav">
-                            <div class="sb-sidenav-menu-heading">PAQUETERIA</div>
-                            <a class="nav-link" href="{{route('dashboard')}}">
-                                <div class="sb-nav-link-icon"></div>
-                                Inicio
-                            </a>
-                            <a class="nav-link" href="{{route('tarifaenvio')}}">
-                                <div class="sb-nav-link-icon"></div>
-                                Crear envio
-                            </a>
-                            <a class="nav-link" href="{{route('paqueteria')}}">
-                                <div class="sb-nav-link-icon"></div>
-                                Paqueteria
-                            </a>
-                            <a class="nav-link" href="{{route('rastreador')}}">
-                                <div class="background-color"></div>
-                                Rastreador
-                            </a>
-                        </div>
-                    </div>
-            </div>
+        </ul>
+      </header>
+    <div class="buttons">  
+        <button class="neumorphic active">
+          <i class="fa-light fa-fire"></i>
+          <span>Button 1</span>
+        </button>
+        <button class="neumorphic">
+          <i class="fa-light fa-dna"></i>
+          <span>Button 2</span>
+        </button>
+        <button class="neumorphic">
+          <i class="fa-light fa-chart-mixed"></i>
+          <span>Button 3</span>
+        </button>
+        <button class="neumorphic">
+          <i class="fa-light fa-atom"></i>
+          <span>Button 4</span>
+        </button>
+        <button class="neumorphic">
+          <i class="fa-light fa-seedling"></i>
+          <span>Button 5</span>
+        </button>
+        <button class="neumorphic">
+          <i class="fa-light fa-disease"></i>
+          <span>Button 6</span>
+        </button>
+      </div>
 
-            <div id="layoutSidenav_content">
-                <main>
-                    <center><h1>MAPA DEL PAQUETE</h1></center>
-                    <div id="map"></div>
-                    <script>
-                        function initMap() {
-                            var myLatLng = {lat: -25.363, lng: 131.044};
-                
-                            var map = new google.maps.Map(document.getElementById('map'), {
-                                zoom: 4,
-                                center: myLatLng
-                            });
-                
-                            var marker = new google.maps.Marker({
-                                position: myLatLng,
-                                map: map,
-                                title: '¡Hola Mundo!'
-                            });
-                        }
-                    </script>
-                    <script src="https://maps.googleapis.com/maps/api/js?key=INSERT_YOUR_API_KEY&callback=initMap&libraries=marker&v=beta&solution_channel=GMP_CCS_infowindows_v2" defer></script>
-                </main>
-            </div>
+
             
-            
-
-
                     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
                         crossorigin="anonymous"></script>
                     <script src="js/scripts.js"></script>

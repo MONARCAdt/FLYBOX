@@ -10,6 +10,7 @@ class PackageLog extends Model
     use HasFactory;
 
     protected $fillable = [
+        'username',
         'nombre_destinatario',
         'numero_paquete',
         'direccion_salida',
